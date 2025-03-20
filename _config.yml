@@ -1,0 +1,16 @@
+title: Retro Dev Blog
+description: A retro-styled developer blog with an 80s aesthetic
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+permalink: /posts/:title/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

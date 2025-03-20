@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article class="post">
+    <h2>{{ page.title }}</h2>
+    <div class="date">{{ page.date | date: "%d-%b-%Y" }}</div>
+    
+    {% if page.tags %}
+    <div class="tags">
+        {% for tag in page.tags %}
+        <span>#{{ tag }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <div class="post-content">
+        {{ content }}
+    </div>
+</article>
