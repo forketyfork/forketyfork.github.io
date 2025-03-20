@@ -1,41 +1,9 @@
 ---
 layout: post
-title: "Building a Retro-Styled Blog with Modern Tech"
-date: 2025-03-20
-tags: [CSS, RetroStyle, WebDev]
+title: "Building a Retro-Styled Blog with Windsurf"
+date: 2025-03-21
+tags: [AI, Windsurf, VibeCoding]
 ---
 
-Exploring how to create an 80s aesthetic using modern CSS features. Learn about CRT effects, scanlines, and text-glow animations.
+I just vibe-coded this blog with Windsurf, really. The initial prompt was "Build a personal developer blog for github pages. Use 80th era style." However, it came up with such eye-popping design that we had several iterations until converging to this.
 
-## The CRT Effect
-
-The CRT (Cathode Ray Tube) effect is achieved using a combination of CSS animations and pseudo-elements. Here's how we did it:
-
-```css
-.crt {
-    animation: textShadow 1.6s infinite;
-}
-
-.scanline {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        to bottom,
-        transparent 50%,
-        rgba(0, 0, 0, 0.1) 51%
-    );
-    background-size: 100% 4px;
-}
-```
-
-## Modern Features Used
-
-1. CSS Animations
-2. Linear Gradients
-3. Text Shadow Effects
-4. CSS Variables
-
-Stay tuned for more posts about retro web development!

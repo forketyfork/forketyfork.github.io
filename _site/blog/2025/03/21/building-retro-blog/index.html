@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
-    <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/cursor.css' | relative_url }}">
-    <script src="{{ '/js/vhs.js' | relative_url }}"></script>
+    <title>Building a Retro-Styled Blog with Windsurf - Retro Dev Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/cursor.css">
+    <script src="/js/vhs.js"></script>
 </head>
 <body>
     <div class="custom-cursor"></div>
@@ -18,14 +18,36 @@
         
         <nav>
             <ul>
-                <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>HOME</a></li>
-                <li><a href="{{ '/blog/' | relative_url }}" {% if page.url == '/blog/' %}class="active"{% endif %}>BLOG</a></li>
-                <li><a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}class="active"{% endif %}>ABOUT</a></li>
+                <li><a href="/" >HOME</a></li>
+                <li><a href="/blog/" >BLOG</a></li>
+                <li><a href="/about/" >ABOUT</a></li>
             </ul>
         </nav>
 
         <main>
-            {{ content }}
+            <article class="post">
+    <h1 class="rgb-glitch">Building a Retro-Styled Blog with Windsurf</h1>
+    <div class="date">21-Mar-2025</div>
+    
+    
+    <div class="tags">
+        
+        <span>#AI</span>
+        
+        <span>#Windsurf</span>
+        
+        <span>#VibeCoding</span>
+        
+    </div>
+    
+    
+    <div class="post-content">
+        <p>I just vibe-coded this blog with Windsurf, really. The initial prompt was “Build a personal developer blog for github pages. Use 80th era style.” However, it came up with such eye-popping design that we had several iterations until converging to this.</p>
+
+
+    </div>
+</article>
+
         </main>
 
         <footer>
