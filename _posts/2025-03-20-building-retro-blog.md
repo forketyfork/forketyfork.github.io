@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building a Retro-Styled Blog with Windsurf"
-date: 2025-03-21
+date: 2025-03-20
 tags: [AI, Windsurf, VibeCoding]
 ---
 
