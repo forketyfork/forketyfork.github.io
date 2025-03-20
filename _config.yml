@@ -5,12 +5,19 @@ url: ""
 
 # Build settings
 markdown: kramdown
-permalink: /posts/:title/
 
+# Permalinks
+permalink: /blog/:year/:month/:day/:title/
+
+# Collections
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"

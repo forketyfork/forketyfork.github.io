@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts - Retro Dev Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/cursor.css">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <div class="crt">
+        <header>
+            <h1 class="glitch">DEV BLOG</h1>
+            <div class="scanline"></div>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="/" >HOME</a></li>
+                <li><a href="/blog/" class="active">BLOG</a></li>
+                <li><a href="/about/" >ABOUT</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="blog-posts">
+    
+        
+        <div class="post">
+            <h3>Building a Retro-Styled Blog with Modern Tech</h3>
+            <div class="date">20-Mar-2025</div>
+            <p>Exploring how to create an 80s aesthetic using modern CSS features. Learn about CRT effects, scanlines, and text-glow animations.</p>
+
+            
+            <div class="tags">
+                
+                <span>#CSS</span>
+                
+                <span>#RetroStyle</span>
+                
+                <span>#WebDev</span>
+                
+            </div>
+            
+            <a href="/blog/2025/03/20/building-retro-blog/" class="read-more">[READ MORE]</a>
+        </div>
+        
+        <div class="post">
+            <h3>The Art of Terminal-Based Development</h3>
+            <div class="date">19-Mar-2025</div>
+            <p>Why mastering command-line tools can make you a more efficient developer. A deep dive into essential CLI tools.</p>
+
+            
+            <div class="tags">
+                
+                <span>#Terminal</span>
+                
+                <span>#CLI</span>
+                
+                <span>#Productivity</span>
+                
+            </div>
+            
+            <a href="/blog/2025/03/19/terminal-development/" class="read-more">[READ MORE]</a>
+        </div>
+        
+    
+</section>
+
+        </main>
+
+        <footer>
+            <p> 2025 | MADE WITH <span class="heart">♥</span> AND NOSTALGIA</p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursor = document.querySelector('.custom-cursor');
+            
+            document.addEventListener('mousemove', function(e) {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            // Add hover effect
+            const interactiveElements = document.querySelectorAll('a, button, input[type="submit"]');
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'scale(1.5)';
+                });
+                element.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
