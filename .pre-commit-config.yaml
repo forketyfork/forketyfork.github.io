@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: bundix-update
+        name: Update gemset.nix
+        entry: bundix
+        language: system
+        files: ^Gemfile\.lock$
