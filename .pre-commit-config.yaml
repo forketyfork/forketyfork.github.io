@@ -2,7 +2,7 @@ repos:
   - repo: local
     hooks:
       - id: bundix-update
-        name: Update gemset.nix
-        entry: bundix
+        name: Update Gemfile.lock andgemset.nix
+        entry: bundix --lock # Regenerate both Gemfile.lock and gemset.nix
         language: system
-        files: ^Gemfile\.lock$
+        files: ^Gemfile$ # Only run on Gemfile changes
