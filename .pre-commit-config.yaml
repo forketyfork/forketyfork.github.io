@@ -1,7 +1,7 @@
 repos:
   - repo: local
     hooks:
-      - id: bundix-update
+      - id: bundix-update # This hook ensures Gemfile.lock and gemset.nix are up to date with Gemfile
         name: Update Gemfile.lock and gemset.nix
         entry: bundix --lock # Regenerate both Gemfile.lock and gemset.nix
         language: system
