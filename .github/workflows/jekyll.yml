@@ -30,7 +30,7 @@ jobs:
       - name: Cache Nix store
         uses: cachix/cachix-action@v14
         with:
-          name: your-cachix-name # optional, skip or replace if you're not using Cachix
+          name: forketyfork
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}' # optional
 
       - name: Build Jekyll site with Nix
