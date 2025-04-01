@@ -1,6 +1,8 @@
 # Retro Dev Blog
 
-A personal developer blog with an 80s retro aesthetic, built for GitHub Pages using Jekyll.
+My personal blog with an 80s retro aesthetic, built for GitHub Pages using Jekyll.
+
+The initial prototype is vibe-coded using Windsurf and Junie.
 
 ## Features
 
@@ -10,21 +12,6 @@ A personal developer blog with an 80s retro aesthetic, built for GitHub Pages us
 - Scanline animation effect
 - Glowing text effects
 - Markdown support for blog posts
-
-## Setup
-
-1. Fork this repository
-2. Enable GitHub Pages in your repository settings
-3. Install Jekyll and dependencies:
-   ```bash
-   gem install bundler jekyll
-   bundle install
-   ```
-4. Run locally:
-   ```bash
-   bundle exec jekyll serve
-   ```
-5. Your blog will be available at `https://[your-username].github.io/[repository-name]`
 
 ## Writing Posts
 
@@ -51,3 +38,20 @@ A personal developer blog with an 80s retro aesthetic, built for GitHub Pages us
 ## License
 
 MIT
+
+## Working with Jekyll
+
+Every time the dependencies in `Gemfile` change, `Gemfile.lock` and `gemset.nix` have to be rebuilt. 
+This is done automatically by a pre-commit hook, if you install it using `pre-commit install`.
+
+To use binary caches from cachix, run:
+
+```shell
+cachix use forketyfork
+```
+
+To run the project locally:
+```shell
+nix develop
+bundle exec jekyll serve
+```
