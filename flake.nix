@@ -13,7 +13,7 @@
           inherit system;
         };
 
-        ruby = pkgs.ruby_3_3;
+        ruby = pkgs.ruby_3_4;
 
         # Check that gemset.nix is up-to-date with Gemfile.lock
         ensureGemsetIsFresh = pkgs.runCommand "ensure-gemset-fresh" {

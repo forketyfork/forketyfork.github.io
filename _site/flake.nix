@@ -1,5 +1,5 @@
 {
-  description = "Jekyll dev shell";
+  description = "Jekyll dev shell with reproducible Ruby environment";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -13,7 +13,19 @@
           inherit system;
         };
 
-        ruby = pkgs.ruby_3_3;
+        ruby = pkgs.ruby_3_4;
+
+        # Check that gemset.nix is up-to-date with Gemfile.lock
+        ensureGemsetIsFresh = pkgs.runCommand "ensure-gemset-fresh" {
+          buildInputs = [ pkgs.bundix ];
+        } ''
+          echo "Checking if gemset.nix is up to date with Gemfile.lock..."
+          if ! bundix --quiet --check; then
+            echo "ERROR: gemset.nix is out of date. Run: bundix" >&2
+            exit 1
+          fi
+          touch $out
+        '';
 
         gemset = pkgs.bundlerEnv {
           name = "jekyll-env";
@@ -23,11 +35,13 @@
 
       in {
         devShell = pkgs.mkShell {
-          buildInputs = [ gemset ruby pkgs.bundix ];
+          inputsFrom = [ ensureGemsetIsFresh ];
+          buildInputs = [ ruby pkgs.bundix gemset ];
+
           shellHook = ''
             export GEM_HOME=$PWD/.gems
             export PATH=$GEM_HOME/bin:$PATH
-            echo "Nix shell ready. Use: bundle exec jekyll serve"
+            echo "Ready to go. Use: bundle exec jekyll serve"
           '';
         };
       }
