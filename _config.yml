@@ -1,7 +1,11 @@
-title: Retro Dev Blog
+title: Forketyfork Dev Blog
 description: A retro-styled developer blog with an 80s aesthetic
 baseurl: ""
 url: ""
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 # Build settings
 markdown: kramdown

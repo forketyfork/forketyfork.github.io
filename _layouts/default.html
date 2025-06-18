@@ -6,7 +6,7 @@
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/cursor.css' | relative_url }}">
-    <script src="{{ '/js/vhs.js' | relative_url }}"></script>
+    {% seo %}
 </head>
 <body>
     <div class="custom-cursor"></div>
