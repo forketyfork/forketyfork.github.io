@@ -398,7 +398,7 @@ a:hover {
 
 .tag-post-item .post-date {
     color: var(--accent-color);
-    font-size: 0.9rem;
+    font-size: 9px;
     min-width: 100px;
 }
 
