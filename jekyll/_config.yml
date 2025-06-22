@@ -7,11 +7,17 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+plugins_dir: _plugins
+
 # Build settings
 markdown: kramdown
 
 # Permalinks
 permalink: /blog/:year/:month/:day/:title/
+
+# Excluding the dist folder created by webpack, as its contents are copied by the copy_dist.rb plugin
+exclude:
+  - dist/
 
 # Collections
 defaults:

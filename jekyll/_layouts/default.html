@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+
+    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&family=Share+Tech+Mono&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    {% seo %}
+</head>
+
+<body>
+    <div class="custom-cursor"></div>
+
+    <div class="container">
+
+        <header class="site-header">
+            <div class="logo-container">
+                <h1 class="site-title">MOV AX, 0xAC1D</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ '/' | relative_url }}" {% if page.url=='/' %}class="active" {% endif %}>HOME</a>
+                    </li>
+                    <li><a href="{{ '/about/' | relative_url }}" {% if page.url=='/about/' %}class="active" {% endif
+                            %}>ABOUT</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="content">
+            {{ content }}
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p> 2025 | MADE WITH <span class="heart">♥</span> AND NOSTALGIA</p>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="{{ '/' | relative_url }}" {% if page.url=='/' %}class="active" {% endif %}>HOME</a>
+                    </li>
+                    <li><a href="{{ '/about/' | relative_url }}" {% if page.url=='/about/' %}class="active" {% endif
+                            %}>ABOUT</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ 'js/app.js' | relative_url }}"></script>
+
+</body>
+
+</html>

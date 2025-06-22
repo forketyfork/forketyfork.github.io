@@ -17,17 +17,8 @@ My personal blog with an 80s retro aesthetic, built for GitHub Pages using Jekyl
 
 3. Run locally:
    ```shell
-   bundle exec jekyll serve
+   bundle exec jekyll serve --source jekyll 
    ```
-
-## Features
-
-- 80s-inspired design with CRT screen effect
-- Retro color scheme with classic green terminal text
-- Responsive layout
-- Scanline animation effect
-- Glowing text effects
-- Markdown support for blog posts
 
 ## Writing Posts
 
@@ -47,8 +38,8 @@ My personal blog with an 80s retro aesthetic, built for GitHub Pages using Jekyl
 
 ## Customization
 
-- Edit `_config.yml` to modify site settings
-- Adjust colors and effects in `styles.css`
+- Edit `jekyll/_config.yml` to modify site settings
+- Adjust colors and effects in `css/custom.css`
 - Modify layouts in the `_layouts` directory
 
 ## License

@@ -41,7 +41,7 @@
           shellHook = ''
             export GEM_HOME=$PWD/.gems
             export PATH=$GEM_HOME/bin:$PATH
-            echo "Ready to go. Use: bundle exec jekyll serve"
+            echo "Ready to go. Use: bundle exec jekyll serve --source jekyll"
           '';
         };
       }

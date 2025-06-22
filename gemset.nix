@@ -144,6 +144,17 @@
     };
     version = "4.4.1";
   };
+  jekyll-feed = {
+    dependencies = ["jekyll"];
+    groups = ["jekyll_plugins"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1hzwmjrxi57x68i7jx5rxi8qlcbqcbg3di55wywrp53pr0bap6k8";
+      type = "gem";
+    };
+    version = "0.17.0";
+  };
   jekyll-sass-converter = {
     dependencies = ["sass-embedded"];
     groups = ["default"];
