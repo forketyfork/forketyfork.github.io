@@ -170,7 +170,6 @@ a:hover {
 }
 
 .post-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(255, 0, 255, 0.3);
     border-color: var(--secondary-color);
 }
@@ -187,8 +186,38 @@ a:hover {
     text-shadow: 3px 3px 0 var(--primary-color);
 }
 
+.post-title a {
+    color: inherit;
+    text-decoration: none;
+    text-shadow: inherit;
+}
+
+.post-title a:hover {
+    text-decoration: underline;
+}
+
 .post-excerpt {
     margin-bottom: 15px;
+}
+
+.inline-read-more {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+    display: inline;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+}
+
+.inline-read-more:hover {
+    text-shadow: 0 0 8px var(--primary-color);
+    background: rgba(146, 255, 146, 0.05);
 }
 
 /* Footer */
@@ -206,6 +235,7 @@ a:hover {
 .heart {
     color: var(--primary-color);
     animation: pulse 1.5s infinite;
+    display: inline-block;
 }
 
 .footer-nav ul {
@@ -236,13 +266,13 @@ a:hover {
     padding: 2rem;
     margin-bottom: 3rem;
     background: rgba(146, 255, 146, 0.03);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     border-radius: 8px;
 }
 
 .post:hover {
-    transform: translateX(10px);
-    box-shadow: -5px 0 15px rgba(146, 255, 146, 0.1);
+    box-shadow: 0 10px 20px rgba(255, 0, 255, 0.3);
+    border-color: var(--secondary-color);
 }
 
 .post h3 {
@@ -273,6 +303,106 @@ a:hover {
     color: var(--primary-color);
     border-radius: 4px;
     opacity: 0.9;
+}
+
+.tag-link {
+    font-family: 'Share Tech Mono', monospace;
+    background: rgba(146, 255, 146, 0.05);
+    border: 1px solid var(--primary-color);
+    padding: 0.3rem 1rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+    color: var(--primary-color);
+    border-radius: 4px;
+    opacity: 0.9;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.tag-link:hover {
+    background: rgba(146, 255, 146, 0.15);
+    color: var(--accent-color);
+    text-shadow: 0 0 5px var(--primary-color);
+    border-color: var(--accent-color);
+}
+
+/* Tag page styles */
+.tags-index .tag-section {
+    margin-bottom: 2rem;
+    border: 1px solid var(--primary-color);
+    background: rgba(146, 255, 146, 0.03);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.tag-title {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tag-title a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    text-shadow: 3px 3px 0 var(--primary-color);
+}
+
+.tag-title a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 5px var(--primary-color);
+}
+
+.tag-count {
+    color: var(--accent-color);
+    font-size: 0.8em;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.tag-posts {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.tag-post-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.5rem;
+    border-left: 2px solid var(--primary-color);
+}
+
+.tag-post-item .post-date {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    min-width: 100px;
+}
+
+.tag-post-item .post-title {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.tag-post-item .post-title:hover {
+    color: var(--primary-color);
+}
+
+.tag-page .tag-description {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.tag-page .tag-description a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.8rem;
+}
+
+.tag-page .tag-description a:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
 }
 
 .read-more {
@@ -463,12 +593,17 @@ a:hover {
 
 /* Animations */
 @keyframes pulse {
-    0%,
-    100% {
+    0% {
         transform: scale(1);
     }
+    10% {
+        transform: scale(1.3);
+    }
     50% {
-        transform: scale(1.2);
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
     }
 }
 

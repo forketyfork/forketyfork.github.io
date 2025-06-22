@@ -2,7 +2,7 @@
 layout: post
 title: "Stop Using AI to Fix Garbage Interfaces - Build Better Ones"
 date: 2025-06-20
-tags: [ai, ai-assistants, technology]
+tags: [AI, AI Assistants, Technology]
 ---
 
 We're slapping AI assistants on broken systems and calling it innovation. Booking tickets, ordering food, hailing rides — all the places where AI is supposed to "help" are just UX graveyards we've created. You don't hand over booking a flight to an AI because it's beneath you — you do it because it's a multi-hour nightmare.
