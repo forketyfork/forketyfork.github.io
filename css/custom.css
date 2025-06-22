@@ -620,13 +620,22 @@ a:hover {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+    /* Hide custom cursor on mobile devices */
+    * {
+        cursor: auto !important;
+    }
+    
+    .custom-cursor {
+        display: none !important;
+    }
+
     body {
-        font-size: 16px;
-        padding: 15px;
+        font-size: 14px;
+        padding: 8px;
     }
 
     .site-title {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
     }
 
     .main-nav ul {
@@ -639,7 +648,15 @@ a:hover {
     }
 
     h1 {
-        font-size: 2.5rem;
+        font-size: 1.3rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    h3 {
+        font-size: 1rem;
     }
 
     nav ul {
@@ -647,6 +664,31 @@ a:hover {
     }
 
     .post {
-        padding: 1.5rem;
+        padding: 1rem;
+        margin: 0 4px 2rem 4px;
+        border-width: 3px;
+    }
+
+    .post-content {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 0 8px;
+    }
+
+    .tags {
+        margin: 1rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .tags span,
+    .tag-link {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.8rem;
+        margin-right: 0;
+        margin-bottom: 0;
     }
 }
