@@ -251,7 +251,7 @@ a:hover {
 }
 
 .footer-nav a {
-    color: var(--secondary-color);
+    color: var(--accent-color);
     text-decoration: none;
 }
 
