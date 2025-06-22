@@ -1,0 +1,61 @@
+---
+layout: default
+title: Page Not Found
+permalink: /404.html
+---
+
+<section class="error-page">
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <span class="terminal-button"></span>
+            <span class="terminal-button"></span>
+            <span class="terminal-button"></span>
+        </div>
+        <div class="terminal-content">
+            <div class="command-line">
+                <span class="prompt">visitor@forketyfork:~$</span> cd {{ page.url }}
+            </div>
+            <div class="response">
+                <p class="error-message">bash: cd: {{ page.url }}: No such file or directory</p>
+            </div>
+
+            <div class="command-line">
+                <span class="prompt">visitor@forketyfork:~$</span> ls -la {{ page.url }}
+            </div>
+            <div class="response">
+                <p class="error-message">ls: cannot access '{{ page.url }}': No such file or directory</p>
+            </div>
+
+            <div class="command-line">
+                <span class="prompt">visitor@forketyfork:~$</span> echo "ERROR 404"
+            </div>
+            <div class="response">
+                <div class="error-display">
+                    <pre class="ascii-art">
+ ███████╗██████╗ ██████╗  ██████╗ ██████╗ 
+ ██╔════╝██╔══██╗██╔══██╗██╔═══██╗██╔══██╗
+ █████╗  ██████╔╝██████╔╝██║   ██║██████╔╝
+ ██╔══╝  ██╔══██╗██╔══██╗██║   ██║██╔══██╗
+ ███████╗██║  ██║██║  ██║╚██████╔╝██║  ██║
+ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝
+                    </pre>
+                    <p class="error-description">PAGE NOT FOUND IN CYBERSPACE</p>
+                </div>
+            </div>
+
+            <div class="command-line">
+                <span class="prompt">visitor@forketyfork:~$</span> find / -name "alternative_routes.txt" -type f
+            </div>
+            <div class="response">
+                <div class="suggestions">
+                    <p><a href="{{ '/' | relative_url }}">/ (HOME)</a></p>
+                    <p><a href="{{ '/about/' | relative_url }}">/about/ (ABOUT)</a></p>
+                </div>
+            </div>
+
+            <div class="command-line">
+                <span class="prompt">visitor@forketyfork:~$</span> <span class="cursor">█</span>
+            </div>
+        </div>
+    </div>
+</section>
