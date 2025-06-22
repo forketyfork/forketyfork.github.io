@@ -138,7 +138,8 @@ a:hover {
 .main-nav a:hover,
 .main-nav a.active {
     background-color: var(--primary-color);
-    color: var(--header-bg-color);
+    color: var(--text-color);
+    font-weight: bold;
 }
 
 /* Latest Posts Section */
