@@ -69,3 +69,24 @@ date: YYYY-MM-DD
 tags: [tag1, tag2]
 ---
 ```
+
+## Deployment & CI/CD
+
+### GitHub Actions Workflow
+- The site is automatically deployed via GitHub Actions on push to `main` branch
+- Workflow file: `.github/workflows/jekyll.yml`
+- Deployment process:
+  1. Sets up Nix environment with cachix for faster builds
+  2. Runs webpack build (`yarn build`) for asset bundling
+  3. Builds Jekyll site with `bundle exec jekyll build --source jekyll`
+  4. Deploys to GitHub Pages
+
+### Asset Build Process
+- **Webpack configuration**: `webpack.common.js`, `webpack.config.dev.js`, `webpack.config.prod.js`
+- **Development**: `yarn start` (webpack dev server)
+- **Production**: `yarn build` (minified assets)
+- **Jekyll plugin**: `jekyll/_plugins/copy_dist.rb` copies webpack output to Jekyll
+
+### Testing & Quality
+- **Pre-commit hooks**: Automatically updates `gemset.nix` when `Gemfile` changes
+- **Nix flake validation**: Ensures `gemset.nix` stays in sync with `Gemfile.lock`

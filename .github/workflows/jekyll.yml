@@ -39,8 +39,6 @@ jobs:
             yarn install
             yarn build
           '
-        env:
-          NODE_ENV: production
 
       - name: Build Jekyll site with Nix
         run: |
