@@ -31,7 +31,16 @@ jobs:
         uses: cachix/cachix-action@v14
         with:
           name: forketyfork
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}' # optional
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
+      - name: Webpack build
+        run: |
+          nix develop --command bash -c '
+            yarn install
+            yarn build
+          '
+        env:
+          NODE_ENV: production
 
       - name: Build Jekyll site with Nix
         run: |
