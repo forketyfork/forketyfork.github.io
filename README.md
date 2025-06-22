@@ -17,7 +17,7 @@ A retro-styled developer blog with an 80s aesthetic, built for GitHub Pages usin
 
 3. Run locally:
    ```shell
-   bundle exec jekyll serve --source jekyll 
+   bundle exec jekyll serve --source jekyll
    ```
 
 ## Architecture
@@ -31,7 +31,7 @@ A retro-styled developer blog with an 80s aesthetic, built for GitHub Pages usin
 
 ### Technology Stack
 - **Jekyll 4.4.1**: Static site generator
-- **Ruby 3.4.2**: Runtime environment
+- **Ruby 3.4.3**: Runtime environment
 - **Webpack 5**: Asset bundling and optimization
 - **Nix**: Reproducible development environment
 - **GitHub Actions**: Automated deployment to GitHub Pages
@@ -76,7 +76,7 @@ This project uses Nix for reproducible development environments and manages Jeky
 - **Install pre-commit hooks**: `pre-commit install`
 
 ### Dependencies
-- Ruby 3.4.2 with Jekyll 4.4.1
+- Ruby 3.4.3 with Jekyll 4.4.1
 - Node.js with Webpack 5 for asset bundling
 - Nix flake manages the complete development environment
 - Pre-commit hooks automatically update `gemset.nix` when `Gemfile` changes

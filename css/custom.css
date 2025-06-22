@@ -1,14 +1,15 @@
 /* Color variables */
+
 :root {
-  --primary-color: #c440a3;
-  --secondary-color: #28a5c7;
-  --accent-color: #e29438;
-  --background-color: #09001a;
-  --text-color: #dcdcdc;
-  --grid-color: rgba(14, 188, 237, 0.12);
-  --card-bg-color: rgba(15, 0, 30, 0.85);
-  --header-bg-color: #120020;
-  --footer-bg-color: #120020;
+  --primary-color: #e94c8a;         /* Hot pink - call to action, links */
+  --secondary-color: #585dc1;       /* Electric indigo - highlights */
+  --accent-color: #f4a641;          /* Sunset orange - contrast, buttons */
+  --background-color: #0b1b28;      /* Midnight navy - page background */
+  --text-color: #f0f0f0;            /* Soft white for readability */
+  --grid-color: rgba(120, 137, 209, 0.1); /* Subtle grid lines */
+  --card-bg-color: rgba(119, 137, 209, 0.1); /* Translucent periwinkle cards */
+  --header-bg-color: #42264a;       /* Deep purple - sets the retro tone */
+  --footer-bg-color: #42264a;
 }
 
 /* Base Styles */

@@ -36,22 +36,22 @@ jobs:
       - name: Webpack build
         run: |
           nix develop --command bash -c '
-            yarn install
-            yarn build
+            yarn install || { echo "Yarn install failed"; exit 1; }
+            yarn build || { echo "Webpack build failed"; exit 1; }
           '
-
-      - name: Build Jekyll site with Nix
-        run: |
-          nix develop --command bash -c '
-            bundle install
-            bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" --source jekyll
-          '
-        env:
-          JEKYLL_ENV: production
 
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+
+      - name: Build Jekyll site with Nix
+        run: |
+          nix develop --command bash -c '
+            bundle install || { echo "Bundle install failed"; exit 1; }
+            bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" --source jekyll || { echo "Jekyll build failed"; exit 1; }
+          '
+        env:
+          JEKYLL_ENV: production
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

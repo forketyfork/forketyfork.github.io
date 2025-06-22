@@ -53,7 +53,7 @@ This project uses Nix for reproducible development environments:
 - `jekyll/index.html`: Homepage showing latest post
 
 ### Dependency Management
-- Ruby 3.4.2 with Jekyll 4.4.1
+- Ruby 3.4.3 with Jekyll 4.4.1
 - Nix flake manages Ruby environment and gems
 - Pre-commit hook automatically updates `gemset.nix` when `Gemfile` changes
 - **Important**: After changing `Gemfile`, both `Gemfile.lock` and `gemset.nix` must be regenerated
