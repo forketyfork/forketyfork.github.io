@@ -73,6 +73,26 @@ p {
     margin-bottom: 1rem;
 }
 
+/* List styles for proper indentation */
+ul, ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 0;
+}
+
+ul li, ol li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
 a {
     color: var(--accent-color);
     text-decoration: none;
@@ -115,6 +135,7 @@ a:hover {
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-left: 0;
     display: flex;
     background-color: var(--primary-color);
 }
@@ -243,6 +264,7 @@ a:hover {
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-left: 0;
     display: flex;
     justify-content: center;
 }
@@ -527,6 +549,7 @@ a:hover {
 .interests-list {
     list-style: none;
     padding: 0;
+    margin-left: 0;
 }
 
 .interests-list li {
