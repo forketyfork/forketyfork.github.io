@@ -466,6 +466,18 @@ a:hover {
     color: var(--primary-color);
 }
 
+p > code {
+    background: rgba(88, 93, 193, 0.15);
+    color: var(--accent-color);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid rgba(88, 93, 193, 0.3);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-shadow: 0 0 3px rgba(244, 166, 65, 0.3);
+}
+
 /* About page styles */
 .about {
     padding: 1rem;
