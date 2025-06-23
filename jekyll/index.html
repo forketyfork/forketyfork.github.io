@@ -4,8 +4,8 @@ title: Home
 ---
 <section class="latest-posts">
     <h2 class="section-title">LATEST POSTS</h2>
-    {% if site.posts.size > 0 %}
-    {% for post in site.posts %}
+    {% if paginator.posts.size > 0 %}
+    {% for post in paginator.posts %}
     <article class="post-card">
         <div class="post-date">{{ post.date | date: "%d-%b-%Y" }}</div>
         <h3 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
@@ -25,3 +25,37 @@ title: Home
     </article>
     {% endif %}
 </section>
+
+{% if paginator.total_pages > 1 %}
+<nav class="pagination">
+    {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-link pagination-prev">← Previous</a>
+    {% endif %}
+    
+    <div class="pagination-numbers">
+        {% if paginator.page_trail %}
+            {% for trail in paginator.page_trail %}
+                {% if trail.num == paginator.page %}
+                    <span class="pagination-link pagination-current">{{ trail.num }}</span>
+                {% else %}
+                    <a href="{{ trail.path | relative_url }}" class="pagination-link">{{ trail.num }}</a>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% for page in (1..paginator.total_pages) %}
+                {% if page == paginator.page %}
+                    <span class="pagination-link pagination-current">{{ page }}</span>
+                {% elsif page == 1 %}
+                    <a href="{{ '/' | relative_url }}" class="pagination-link">{{ page }}</a>
+                {% else %}
+                    <a href="{{ site.paginate_path | replace: ':num', page | relative_url }}" class="pagination-link">{{ page }}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+    
+    {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-link pagination-next">Next →</a>
+    {% endif %}
+</nav>
+{% endif %}

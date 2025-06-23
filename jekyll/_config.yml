@@ -6,6 +6,7 @@ url: "https://forketyfork.github.io"
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-paginate
 
 plugins_dir: _plugins
 
@@ -14,6 +15,10 @@ markdown: kramdown
 
 # Permalinks
 permalink: /blog/:year/:month/:day/:title/
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
 
 # Excluding the dist folder created by webpack, as its contents are copied by the copy_dist.rb plugin
 exclude:
