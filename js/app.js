@@ -1,6 +1,7 @@
 // Import CSS files
 import '../css/style.css';
 import '../css/custom.css';
+import '../css/fruity.css';
 
 // Showing a CRT-style cursor instead of the mouse pointer
 document.addEventListener('DOMContentLoaded', function () {
