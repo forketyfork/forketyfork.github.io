@@ -466,6 +466,16 @@ a:hover {
     color: var(--primary-color);
 }
 
+/* Ensure post images scale and are centered */
+.post-image {
+    display: block;
+    margin: 1.5rem auto;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
 p > code {
     background: rgba(88, 93, 193, 0.15);
     color: var(--accent-color);
