@@ -11,7 +11,7 @@ Claude Code usage isn’t free, and keeping costs under control matters—for se
 
 I care about both. So, to stay mindful of my Claude Code spend, I built a small macOS app that puts the current usage right in the menu bar:
 
-![claude-nein](/img/claude-nein.png)
+![claude-nein](/img/claude-nein.png){: .post-image }
 
 It’s called [Claude Nein](https://github.com/forketyfork/claude-nein) — a pun on “cloud nine.”
 
