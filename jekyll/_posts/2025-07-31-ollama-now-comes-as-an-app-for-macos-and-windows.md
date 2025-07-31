@@ -1,19 +1,21 @@
 ---
 layout: post
-title: "Ollama now comes as an app for macOS and Windows"
+title: "Ollama App Released: Quick Comparison with Enchanted LLM"
 date: 2025-07-31
 tags: [AI, Ollama, Local Models]
 ---
 
-Ollama has released [an app for macOS and Windows](https://ollama.com/blog/new-app) today. I compared it to [Enchanted LLM](https://apps.apple.com/us/app/enchanted-llm/id6474268307) that I typically use. Here's where Ollama shines:
-- has a Windows app
-- can download models
-- has a context window slider
+Today, Ollama launched its [desktop app for macOS and Windows](https://ollama.com/blog/new-app). As someone who regularly uses [Enchanted LLM](https://apps.apple.com/us/app/enchanted-llm/id6474268307), I gave the new Ollama app a spin. Here’s where it stands out:
 
-And this is where it falls short compared to Enchanted LLM:
-- doesn't have the possibility to copy chat contents
-- doesn't have system text-to-speech/speech-to-text integration
-- doesn't provide system hotkey integration (e.g. to use local models for autocompletion).
+What Ollama Gets Right:
+- Windows support — finally, a native desktop LLM app on both major platforms.
+- Model downloads — lets you run models locally without relying on a constant internet connection.
+- Context window slider — handy for tuning memory depth per session.
 
-I'll probably keep both apps for now, also since Enchanted LLM hasn't been updated for a year now.
+Where Ollama Falls Short (for now):
+- No chat export — there’s no built-in way to copy or save the conversation.
+- No system-level TTS/STT — unlike Enchanted, it doesn’t integrate with macOS speech-to-text or text-to-speech.
+- No global hotkey integration — can’t summon it for quick completions or interactions system-wide.
+
+For now, I’ll probably keep both. Enchanted LLM still has features I rely on daily, but it’s been stagnant — no updates in over a year. Ollama feels more modern and active, so I’m keeping an eye on how fast it evolves.
 
