@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const cursor = document.querySelector('.custom-cursor');
 
     document.addEventListener('mousemove', function (e) {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
+        cursor.style.left = (e.clientX - 6) + 'px';
+        cursor.style.top = (e.clientY - 10) + 'px';
     });
 
     // Add hover effect
