@@ -8,7 +8,29 @@ This is a Jekyll-based personal blog with an 80s retro aesthetic, deployed on Gi
 
 ## Development Environment
 
-This project uses Nix for reproducible development environments:
+This project uses Nix for reproducible development environments with direnv for automatic loading:
+
+### Option 1: Automatic Environment (Recommended)
+
+1. Install direnv:
+   ```shell
+   # macOS
+   brew install direnv
+   # Add to your shell rc file: eval "$(direnv hook bash)" or eval "$(direnv hook zsh)"
+   ```
+
+2. Setup cachix and allow direnv:
+   ```shell
+   cachix use forketyfork
+   direnv allow
+   ```
+
+3. Start development (environment loads automatically):
+   ```shell
+   just serve
+   ```
+
+### Option 2: Manual Environment
 
 1. Setup cachix for binary caches:
    ```shell
