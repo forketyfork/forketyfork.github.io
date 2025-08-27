@@ -230,3 +230,38 @@ main .gsc-loading-image {
     color: #e94c8a !important;
     text-shadow: 0 0 5px #f4a641;
 }
+
+/* Fix reaction picker dropdown */
+.gsc-reactions-menu {
+    background-color: #42264a !important;
+    border: 2px solid #e94c8a !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(233, 76, 138, 0.3) !important;
+    min-width: 200px !important;
+    padding: 8px !important;
+}
+
+.gsc-reactions-menu .gsc-reactions-menu-item {
+    background-color: rgba(146, 255, 146, 0.05) !important;
+    border: 1px solid #585dc1 !important;
+    border-radius: 4px !important;
+    color: #f0f0f0 !important;
+    margin: 2px !important;
+    transition: all 0.3s ease !important;
+}
+
+.gsc-reactions-menu .gsc-reactions-menu-item:hover {
+    background-color: rgba(233, 76, 138, 0.2) !important;
+    border-color: #e94c8a !important;
+    box-shadow: 0 0 5px rgba(233, 76, 138, 0.3) !important;
+}
+
+/* Fix comments header spacing */
+.gsc-header {
+    padding: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.gsc-header .gsc-header-text {
+    margin-left: 0.5rem !important;
+}
