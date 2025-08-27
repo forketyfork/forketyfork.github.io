@@ -231,8 +231,8 @@ main .gsc-loading-image {
     text-shadow: 0 0 5px #f4a641;
 }
 
-/* Fix reaction picker dropdown */
-.gsc-reactions-menu {
+/* Fix reaction picker popover */
+.gsc-reactions-popover {
     background-color: #42264a !important;
     border: 2px solid #e94c8a !important;
     border-radius: 8px !important;
@@ -241,7 +241,7 @@ main .gsc-loading-image {
     padding: 8px !important;
 }
 
-.gsc-reactions-menu .gsc-reactions-menu-item {
+.gsc-reactions-popover .gsc-reactions-menu-item {
     background-color: rgba(146, 255, 146, 0.05) !important;
     border: 1px solid #585dc1 !important;
     border-radius: 4px !important;
@@ -250,7 +250,7 @@ main .gsc-loading-image {
     transition: all 0.3s ease !important;
 }
 
-.gsc-reactions-menu .gsc-reactions-menu-item:hover {
+.gsc-reactions-popover .gsc-reactions-menu-item:hover {
     background-color: rgba(233, 76, 138, 0.2) !important;
     border-color: #e94c8a !important;
     box-shadow: 0 0 5px rgba(233, 76, 138, 0.3) !important;
