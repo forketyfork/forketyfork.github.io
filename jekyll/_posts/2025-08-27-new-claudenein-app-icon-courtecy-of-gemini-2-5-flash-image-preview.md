@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "New ClaudeNein app icon, Courtecy of Gemini 2.5 Flash Image Preview"
+title: "New ClaudeNein app icon, Courtesy of Gemini 2.5 Flash Image Preview"
 date: 2025-08-27
 tags: [Claude, Gemini, Image Generation]
 ---
