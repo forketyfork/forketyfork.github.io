@@ -20,23 +20,23 @@ This project uses Nix for reproducible development environments:
    nix develop
    ```
 
-3. Build webpack assets (required for CSS/JS):
+3. Start development server:
    ```shell
-   yarn install && yarn build
-   ```
-
-4. Serve the site locally:
-   ```shell
-   JEKYLL_ENV=development bundle exec jekyll serve --source jekyll --host 0.0.0.0 --port 4000
+   just serve
    ```
 
 ## Key Commands
 
-- **Local development**: 
-  1. `yarn build` (build webpack assets)
-  2. `JEKYLL_ENV=development bundle exec jekyll serve --source jekyll --host 0.0.0.0 --port 4000` (after `nix develop`)
-- **Update dependencies**: `bundix --lock` (regenerates Gemfile.lock and gemset.nix)
-- **Install pre-commit hooks**: `pre-commit install`
+All development commands are available via `just` (run `just --list` to see all options):
+
+- **Local development**: `just serve` (builds assets and starts server)
+- **Quick restart**: `just serve-quick` (skips asset rebuild)
+- **Build assets only**: `just build` (webpack production build)
+- **Update dependencies**: `just deps` (regenerates Gemfile.lock and gemset.nix)
+- **Install pre-commit hooks**: `just hooks`
+- **Format Nix files**: `just format`
+- **Clean generated files**: `just clean`
+- **Environment status**: `just status` (shows setup status)
 
 ## Architecture
 
@@ -108,9 +108,10 @@ The blog uses Giscus for comments with custom 80s retro styling. For local devel
 - CORS plugin: `jekyll/_plugins/cors_headers.rb` (enables local CSS loading)
 
 ### Development Workflow
-1. **Edit comment styles**: Modify `css/giscus-custom.css`
-2. **Rebuild assets**: Run `yarn build` to update webpack output
-3. **Test locally**: Giscus will load CSS from `http://localhost:4000/css/giscus-custom.css`
+1. **Start Giscus development**: Run `just giscus` (builds assets and starts server)
+2. **Edit comment styles**: Modify `css/giscus-custom.css`
+3. **Rebuild assets**: Run `just build` to update webpack output
+4. **Test locally**: Giscus will load CSS from `http://localhost:4000/css/giscus-custom.css`
 
 ### Environment Detection
 - **Development**: Uses local CSS URL for immediate testing
@@ -118,6 +119,7 @@ The blog uses Giscus for comments with custom 80s retro styling. For local devel
 - **CORS headers**: Automatically added in development to allow cross-origin CSS loading
 
 ### Important Notes
-- Always run with `JEKYLL_ENV=development` for proper local CSS loading
-- The CORS plugin only activates in development mode
-- Webpack build is required before Jekyll serve to generate assets in `jekyll/dist/`
+- Use `just serve` for automatic proper environment setup
+- The CORS plugin only activates in development mode  
+- Webpack assets are automatically built with `just serve` and `just giscus`
+- Use `just serve-quick` for faster restarts when assets don't need rebuilding
