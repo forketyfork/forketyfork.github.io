@@ -1,10 +1,25 @@
 ---
 layout: default
 ---
+<script src="https://giscus.app/client.js"
+        data-repo="forketyfork/forketyfork.github.io"
+        data-repo-id="R_kgDOOMDjcQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOOMDjcc4Cup6F"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
 <article class="post">
     <h1>{{ page.title }}</h1>
     <div class="post-date">{{ page.date | date: "%d-%b-%Y" }}</div>
-    
+
     {% if page.tags %}
     <div class="tags">
         {% for tag in page.tags %}
@@ -12,7 +27,7 @@ layout: default
         {% endfor %}
     </div>
     {% endif %}
-    
+
     <div class="post-content">
         {{ content }}
     </div>
