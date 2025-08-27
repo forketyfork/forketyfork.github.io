@@ -20,14 +20,21 @@ This project uses Nix for reproducible development environments:
    nix develop
    ```
 
-3. Serve the site locally:
+3. Build webpack assets (required for CSS/JS):
    ```shell
-   bundle exec jekyll serve --source jekyll
+   yarn install && yarn build
+   ```
+
+4. Serve the site locally:
+   ```shell
+   JEKYLL_ENV=development bundle exec jekyll serve --source jekyll --host 0.0.0.0 --port 4000
    ```
 
 ## Key Commands
 
-- **Local development**: `bundle exec jekyll serve --source jekyll` (after `nix develop`)
+- **Local development**: 
+  1. `yarn build` (build webpack assets)
+  2. `JEKYLL_ENV=development bundle exec jekyll serve --source jekyll --host 0.0.0.0 --port 4000` (after `nix develop`)
 - **Update dependencies**: `bundix --lock` (regenerates Gemfile.lock and gemset.nix)
 - **Install pre-commit hooks**: `pre-commit install`
 
@@ -90,3 +97,27 @@ tags: [tag1, tag2]
 ### Testing & Quality
 - **Pre-commit hooks**: Automatically updates `gemset.nix` when `Gemfile` changes
 - **Nix flake validation**: Ensures `gemset.nix` stays in sync with `Gemfile.lock`
+
+## Giscus Comments Development
+
+The blog uses Giscus for comments with custom 80s retro styling. For local development and testing of comment styles:
+
+### Setup
+- Custom CSS: `css/giscus-custom.css`
+- Giscus configuration: `jekyll/_layouts/post.html`
+- CORS plugin: `jekyll/_plugins/cors_headers.rb` (enables local CSS loading)
+
+### Development Workflow
+1. **Edit comment styles**: Modify `css/giscus-custom.css`
+2. **Rebuild assets**: Run `yarn build` to update webpack output
+3. **Test locally**: Giscus will load CSS from `http://localhost:4000/css/giscus-custom.css`
+
+### Environment Detection
+- **Development**: Uses local CSS URL for immediate testing
+- **Production**: Uses production URL `https://forketyfork.github.io/css/giscus-custom.css`
+- **CORS headers**: Automatically added in development to allow cross-origin CSS loading
+
+### Important Notes
+- Always run with `JEKYLL_ENV=development` for proper local CSS loading
+- The CORS plugin only activates in development mode
+- Webpack build is required before Jekyll serve to generate assets in `jekyll/dist/`
