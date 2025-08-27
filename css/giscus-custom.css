@@ -1,0 +1,232 @@
+.gsc-reactions-count {
+    display: none;
+}
+
+.gsc-timeline {
+    flex-direction: column-reverse;
+}
+
+.gsc-header {
+    padding-bottom: 1rem;
+}
+
+.gsc-comments > .gsc-header {
+    order: 1;
+}
+
+.gsc-comments > .gsc-comment-box {
+    margin-bottom: 1rem;
+    order: 2;
+}
+
+.gsc-comments > .gsc-timeline {
+    order: 3;
+}
+
+.gsc-homepage-bg {
+    background-color: #0b1b28;
+}
+
+main .gsc-loading-image {
+    background-image: url(https://github.githubassets.com/images/mona-loading-dimmed.gif);
+}
+
+/* Custom 80s retro theme colors */
+.gsc-main {
+    background-color: #0b1b28;
+    color: #f0f0f0;
+    border: 2px solid #e94c8a;
+    border-radius: 8px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.gsc-header {
+    background-color: #42264a;
+    border-bottom: 2px solid #e94c8a;
+}
+
+.gsc-header-text {
+    color: #f0f0f0;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.8rem;
+    text-shadow: 2px 2px 0 #e94c8a;
+}
+
+.gsc-comment-box {
+    background-color: rgba(119, 137, 209, 0.1);
+    border: 1px solid #e94c8a;
+    border-radius: 8px;
+}
+
+.gsc-comment-box-textarea {
+    background-color: #0b1b28;
+    color: #f0f0f0;
+    border: 1px solid #585dc1;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.gsc-comment-box-textarea:focus {
+    border-color: #e94c8a;
+    box-shadow: 0 0 8px rgba(233, 76, 138, 0.3);
+}
+
+.gsc-comment-box-buttons {
+    background-color: #42264a;
+}
+
+.gsc-comment-box-buttons .btn-primary {
+    background-color: #e94c8a;
+    border-color: #e94c8a;
+    color: #f0f0f0;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    transition: all 0.3s ease;
+}
+
+.gsc-comment-box-buttons .btn-primary:hover {
+    background-color: #f4a641;
+    border-color: #f4a641;
+    text-shadow: 0 0 8px #e94c8a;
+}
+
+.gsc-comment {
+    background-color: rgba(119, 137, 209, 0.1);
+    border: 1px solid #585dc1;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.gsc-comment-header {
+    background-color: #42264a;
+    border-bottom: 1px solid #e94c8a;
+}
+
+.gsc-comment-author {
+    color: #f4a641;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+}
+
+.gsc-comment-author-avatar {
+    border: 2px solid #e94c8a;
+    border-radius: 4px;
+}
+
+.gsc-comment-created-at {
+    color: #585dc1;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.gsc-comment-content {
+    color: #f0f0f0;
+    font-family: 'Share Tech Mono', monospace;
+    line-height: 1.6;
+}
+
+.gsc-comment-content p {
+    color: #f0f0f0;
+}
+
+.gsc-comment-content a {
+    color: #f4a641;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.gsc-comment-content a:hover {
+    color: #e94c8a;
+    text-shadow: 0 0 5px #f4a641;
+    text-decoration: underline;
+}
+
+.gsc-comment-content code {
+    background-color: rgba(88, 93, 193, 0.15);
+    color: #f4a641;
+    border: 1px solid rgba(88, 93, 193, 0.3);
+    border-radius: 4px;
+    padding: 0.2rem 0.4rem;
+    font-family: 'Share Tech Mono', monospace;
+    text-shadow: 0 0 3px rgba(244, 166, 65, 0.3);
+}
+
+.gsc-comment-content pre {
+    background-color: rgba(146, 255, 146, 0.05);
+    border: 1px solid #e94c8a;
+    border-radius: 8px;
+    color: #e94c8a;
+}
+
+.gsc-comment-reactions {
+    background-color: #42264a;
+    border-top: 1px solid #e94c8a;
+}
+
+.gsc-social-reaction-summary-item {
+    background-color: rgba(146, 255, 146, 0.05);
+    border: 1px solid #e94c8a;
+    color: #f0f0f0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.gsc-social-reaction-summary-item:hover {
+    background-color: rgba(233, 76, 138, 0.1);
+    border-color: #f4a641;
+    box-shadow: 0 0 5px rgba(233, 76, 138, 0.3);
+}
+
+.gsc-reply {
+    border-left: 3px solid #e94c8a;
+    background-color: rgba(88, 93, 193, 0.05);
+}
+
+.gsc-reply .gsc-comment {
+    border-color: #f4a641;
+}
+
+.gsc-pagination {
+    background-color: #42264a;
+    border-top: 2px solid #e94c8a;
+}
+
+.gsc-pagination .btn {
+    background-color: #585dc1;
+    border-color: #585dc1;
+    color: #f0f0f0;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+}
+
+.gsc-pagination .btn:hover {
+    background-color: #e94c8a;
+    border-color: #e94c8a;
+    text-shadow: 0 0 8px #f4a641;
+}
+
+/* Reaction buttons styling */
+.gsc-comment-box-reactions .btn {
+    background-color: rgba(146, 255, 146, 0.05);
+    border: 1px solid #585dc1;
+    color: #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.gsc-comment-box-reactions .btn:hover {
+    background-color: rgba(233, 76, 138, 0.1);
+    border-color: #e94c8a;
+    box-shadow: 0 0 5px rgba(233, 76, 138, 0.3);
+}
+
+/* Discussion category badge */
+.gsc-header .color-fg-muted {
+    color: #585dc1 !important;
+}
+
+.gsc-header .Link--primary {
+    color: #f4a641 !important;
+}
+
+.gsc-header .Link--primary:hover {
+    color: #e94c8a !important;
+    text-shadow: 0 0 5px #f4a641;
+}
