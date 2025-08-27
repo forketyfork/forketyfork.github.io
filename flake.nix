@@ -46,15 +46,17 @@
             pkgs.nil
             pkgs.yarn
             pkgs.nodejs
+            pkgs.just
           ];
 
           shellHook = ''
             echo "Jekyll development environment ready!"
             echo "Available commands:"
-            echo "  bundle exec jekyll serve --source jekyll  # Start development server"
-            echo "  bundix --lock                             # Update gemset.nix"
-            echo "  yarn build                                # Build webpack assets"
-            echo "  nixfmt flake.nix                          # Format Nix files"
+            echo "  just serve    # Start development server"
+            echo "  just build    # Build webpack assets"
+            echo "  just deps     # Update dependencies"
+            echo "  just format   # Format Nix files"
+            echo "  just --list   # Show all available commands"
           '';
         };
 

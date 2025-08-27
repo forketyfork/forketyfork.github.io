@@ -28,7 +28,7 @@ layout: default
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="bottom"
-        data-theme="https://forketyfork.github.io/css/giscus-custom.css"
+        data-theme="{% if jekyll.environment == 'development' %}http://localhost:4000{% else %}{{ site.url }}{% endif %}{{ site.baseurl }}/css/giscus-custom.css"
         data-lang="en"
         crossorigin="anonymous"
         async>
