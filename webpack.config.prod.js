@@ -24,6 +24,7 @@ module.exports = merge(common, {
         { from: 'js/vendor', to: 'js/vendor' },
         { from: 'favicon.ico', to: 'favicon.ico' },
         { from: 'icon.png', to: 'icon.png' },
+        { from: 'css/giscus-custom.css', to: 'css/giscus-custom.css' },
       ],
     }),
   ],
