@@ -31,11 +31,15 @@ jobs:
             yarn build || { echo "Webpack build failed"; exit 1; }
           '
 
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
       - name: Build Jekyll site with Nix
         run: |
           nix develop --command bash -c '
             bundle install || { echo "Bundle install failed"; exit 1; }
-            bundle exec jekyll build --source jekyll || { echo "Jekyll build failed"; exit 1; }
+            bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" --source jekyll || { echo "Jekyll build failed"; exit 1; }
           '
         env:
           JEKYLL_ENV: production
