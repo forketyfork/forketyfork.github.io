@@ -1,0 +1,41 @@
+name: Build Jekyll site
+
+on:
+  push:
+    branches: ["*"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Cache Nix store
+        uses: cachix/cachix-action@v16
+        with:
+          name: forketyfork
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
+      - name: Webpack build
+        run: |
+          nix develop --command bash -c '
+            yarn install || { echo "Yarn install failed"; exit 1; }
+            yarn build || { echo "Webpack build failed"; exit 1; }
+          '
+
+      - name: Build Jekyll site with Nix
+        run: |
+          nix develop --command bash -c '
+            bundle install || { echo "Bundle install failed"; exit 1; }
+            bundle exec jekyll build --source jekyll || { echo "Jekyll build failed"; exit 1; }
+          '
+        env:
+          JEKYLL_ENV: production
