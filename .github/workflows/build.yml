@@ -2,7 +2,7 @@ name: Build Jekyll site
 
 on:
   push:
-    branches: ["*"]
+    branches: ["**"]
   workflow_dispatch:
 
 jobs:
