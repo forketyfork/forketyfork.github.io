@@ -1,5 +1,10 @@
 # Forketyfork Dev Blog
 
+[![Build status](https://github.com/forketyfork/forketyfork.github.io/actions/workflows/build.yml/badge.svg)](https://github.com/forketyfork/forketyfork.github.io/actions/workflows/build.yml)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![HTML](https://img.shields.io/badge/language-css-yellow.svg)](https://www.w3.org/Style/CSS/Overview.en.html)
+
+
 A retro-styled developer blog with an 80s aesthetic, built for GitHub Pages using Jekyll and deployed automatically via GitHub Actions.
 
 ## Quick Start
