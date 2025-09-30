@@ -45,7 +45,11 @@
                             {% if lang == site.active_lang %}
                                 <span class="lang-active">{{ lang | upcase }}</span>
                             {% else %}
-                                <a href="{% if lang == site.default_lang %}{{ page.url }}{% else %}/{{ lang }}{{ page.url }}{% endif %}">{{ lang | upcase }}</a>
+                                {% if lang == site.default_lang %}
+                                    <a {% static_href %}href="/"{% endstatic_href %}>{{ lang | upcase }}</a>
+                                {% else %}
+                                    <a {% static_href %}href="/{{ lang }}/"{% endstatic_href %}>{{ lang | upcase }}</a>
+                                {% endif %}
                             {% endif %}
                             {% unless forloop.last %}<span class="lang-separator">|</span>{% endunless %}
                         {% endfor %}
