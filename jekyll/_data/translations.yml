@@ -1,0 +1,92 @@
+en:
+  nav:
+    home: "HOME"
+    about: "ABOUT"
+  footer:
+    made_with: "MADE WITH"
+    and: "AND"
+    nostalgia: "NOSTALGIA"
+  post:
+    tags: "Tags"
+  date_format: "%d-%b-%Y"
+  home:
+    latest_posts: "LATEST POSTS"
+    no_posts: "No posts yet. Check back soon!"
+    read_more: "[read more]"
+  pagination:
+    previous: "← Previous"
+    next: "Next →"
+  tags:
+    all_tags: "ALL TAGS"
+    posts_tagged: "POSTS TAGGED WITH"
+    back_to_tags: "[← Back to all tags]"
+    no_posts_tag: "No posts found with this tag."
+  error:
+    title: "Page Not Found"
+    page_not_found: "PAGE NOT FOUND IN CYBERSPACE"
+    no_such_file: "No such file or directory"
+    cannot_access: "cannot access"
+    home_link: "/ (HOME)"
+    about_link: "/about/ (ABOUT)"
+
+de:
+  nav:
+    home: "STARTSEITE"
+    about: "ÜBER"
+  footer:
+    made_with: "GEMACHT MIT"
+    and: "UND"
+    nostalgia: "NOSTALGIE"
+  post:
+    tags: "Tags"
+  date_format: "%d.%m.%Y"
+  home:
+    latest_posts: "NEUESTE BEITRÄGE"
+    no_posts: "Noch keine Beiträge. Schauen Sie bald wieder vorbei!"
+    read_more: "[mehr lesen]"
+  pagination:
+    previous: "← Zurück"
+    next: "Weiter →"
+  tags:
+    all_tags: "ALLE TAGS"
+    posts_tagged: "BEITRÄGE MIT TAG"
+    back_to_tags: "[← Zurück zu allen Tags]"
+    no_posts_tag: "Keine Beiträge mit diesem Tag gefunden."
+  error:
+    title: "Seite nicht gefunden"
+    page_not_found: "SEITE IM CYBERSPACE NICHT GEFUNDEN"
+    no_such_file: "Datei oder Verzeichnis nicht gefunden"
+    cannot_access: "kein Zugriff auf"
+    home_link: "/ (STARTSEITE)"
+    about_link: "/about/ (ÜBER)"
+
+ru:
+  nav:
+    home: "ГЛАВНАЯ"
+    about: "О БЛОГЕ"
+  footer:
+    made_with: "СДЕЛАНО С"
+    and: "И"
+    nostalgia: "НОСТАЛЬГИЕЙ"
+  post:
+    tags: "Метки"
+  date_format: "%d.%m.%Y"
+  home:
+    latest_posts: "ПОСЛЕДНИЕ ЗАПИСИ"
+    no_posts: "Пока нет записей. Загляните позже!"
+    read_more: "[читать далее]"
+  pagination:
+    previous: "← Назад"
+    next: "Вперёд →"
+  tags:
+    all_tags: "ВСЕ МЕТКИ"
+    posts_tagged: "ЗАПИСИ С МЕТКОЙ"
+    back_to_tags: "[← Вернуться ко всем меткам]"
+    no_posts_tag: "Записи с этой меткой не найдены."
+  error:
+    title: "Страница не найдена"
+    page_not_found: "СТРАНИЦА НЕ НАЙДЕНА В КИБЕРПРОСТРАНСТВЕ"
+    no_such_file: "Нет такого файла или каталога"
+    cannot_access: "нет доступа к"
+    home_link: "/ (ГЛАВНАЯ)"
+    about_link: "/about/ (О БЛОГЕ)"

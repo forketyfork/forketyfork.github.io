@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="{{ site.active_lang }}">
 
 <head>
     <meta charset="UTF-8">
@@ -36,10 +36,32 @@
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="{{ '/' | relative_url }}" {% if page.url=='/' %}class="active" {% endif %}>HOME</a>
+                    <li><a href="{{ '/' | relative_url }}" {% if page.url=='/' %}class="active" {% endif %}>{{ site.data.translations[site.active_lang].nav.home }}</a>
                     </li>
                     <li><a href="{{ '/about/' | relative_url }}" {% if page.url=='/about/' %}class="active" {% endif
-                            %}>ABOUT</a></li>
+                            %}>{{ site.data.translations[site.active_lang].nav.about }}</a></li>
+                    <li class="lang-switcher">
+                        {% for lang in site.languages %}
+                            {% if lang == site.active_lang %}
+                                <span class="lang-active">{{ lang | upcase }}</span>
+                            {% else %}
+                                {% if page.id %}
+                                    {% if lang == site.default_lang %}
+                                        <a {% static_href %}href="{{ page.url }}"{% endstatic_href %}>{{ lang | upcase }}</a>
+                                    {% else %}
+                                        <a {% static_href %}href="/{{ lang }}{{ page.url }}"{% endstatic_href %}>{{ lang | upcase }}</a>
+                                    {% endif %}
+                                {% else %}
+                                    {% if lang == site.default_lang %}
+                                        <a {% static_href %}href="/"{% endstatic_href %}>{{ lang | upcase }}</a>
+                                    {% else %}
+                                        <a {% static_href %}href="/{{ lang }}/"{% endstatic_href %}>{{ lang | upcase }}</a>
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                            {% unless forloop.last %}<span class="lang-separator">|</span>{% endunless %}
+                        {% endfor %}
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -50,14 +72,14 @@
 
         <footer class="site-footer">
             <div class="footer-content">
-                <p> 2025 | MADE WITH <span class="heart">♥</span> AND NOSTALGIA</p>
+                <p> 2025 | {{ site.data.translations[site.active_lang].footer.made_with }} <span class="heart">♥</span> {{ site.data.translations[site.active_lang].footer.and }} {{ site.data.translations[site.active_lang].footer.nostalgia }}</p>
             </div>
             <div class="footer-nav">
                 <ul>
-                    <li><a href="{{ '/' | relative_url }}" {% if page.url=='/' %}class="active" {% endif %}>HOME</a>
+                    <li><a href="{{ '/' | relative_url }}" {% if page.url=='/' %}class="active" {% endif %}>{{ site.data.translations[site.active_lang].nav.home }}</a>
                     </li>
                     <li><a href="{{ '/about/' | relative_url }}" {% if page.url=='/about/' %}class="active" {% endif
-                            %}>ABOUT</a></li>
+                            %}>{{ site.data.translations[site.active_lang].nav.about }}</a></li>
                 </ul>
             </div>
         </footer>

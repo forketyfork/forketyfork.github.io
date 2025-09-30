@@ -89,6 +89,7 @@ All development commands are available via `just` (run `just --list` to see all 
 
 ## Blog Post Creation
 
+### English Posts (Default)
 New posts go in `jekyll/_posts/` with format `YYYY-MM-DD-title.md` and require front matter:
 ```yaml
 ---
@@ -98,6 +99,38 @@ date: YYYY-MM-DD
 tags: [tag1, tag2]
 ---
 ```
+
+### Multilingual Posts
+The site supports English (default), German, and Russian using [jekyll-polyglot](https://github.com/untra/polyglot).
+
+**Directory structure:**
+- English posts: `jekyll/_posts/YYYY-MM-DD-title.md`
+- German posts: `jekyll/_posts/de/YYYY-MM-DD-title.md`
+- Russian posts: `jekyll/_posts/ru/YYYY-MM-DD-title.md`
+
+**Important: Translated posts must:**
+1. Have the **exact same filename** as the English version (e.g., `2025-08-27-my-post.md`)
+2. Include a `lang` frontmatter variable (e.g., `lang: de` or `lang: ru`)
+3. Be placed in the appropriate language subdirectory
+
+**Example:**
+```yaml
+# jekyll/_posts/de/2025-08-27-my-post.md
+---
+layout: post
+title: "Mein Artikel"
+date: 2025-08-27
+tags: [tag1, tag2]
+lang: de
+---
+```
+
+**Translations:**
+- UI translations are in `jekyll/_data/translations.yml`
+- Language switcher appears in the navigation (EN | DE | RU)
+- URLs are automatically prefixed with language code (e.g., `/de/blog/...`, `/ru/blog/...`)
+- English (default language) has no prefix in URLs
+- Polyglot automatically filters posts by language on each language version of the site
 
 ## Deployment & CI/CD
 

@@ -7,8 +7,15 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-paginate
+  - jekyll-polyglot
 
 plugins_dir: _plugins
+
+# Polyglot language settings
+languages: ["en", "de", "ru"]
+default_lang: "en"
+exclude_from_localization: ["js", "img", "css", "fonts"]
+parallel_localization: true
 
 # Build settings
 markdown: kramdown

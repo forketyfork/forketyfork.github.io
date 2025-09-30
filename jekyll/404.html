@@ -1,6 +1,5 @@
 ---
 layout: default
-title: Page Not Found
 permalink: /404.html
 ---
 
@@ -16,14 +15,14 @@ permalink: /404.html
                 <span class="prompt">visitor@forketyfork:~$</span> cd {{ page.url }}
             </div>
             <div class="response">
-                <p class="error-message">bash: cd: {{ page.url }}: No such file or directory</p>
+                <p class="error-message">bash: cd: {{ page.url }}: {{ site.data.translations[site.active_lang].error.no_such_file }}</p>
             </div>
 
             <div class="command-line">
                 <span class="prompt">visitor@forketyfork:~$</span> ls -la {{ page.url }}
             </div>
             <div class="response">
-                <p class="error-message">ls: cannot access '{{ page.url }}': No such file or directory</p>
+                <p class="error-message">ls: {{ site.data.translations[site.active_lang].error.cannot_access }} '{{ page.url }}': {{ site.data.translations[site.active_lang].error.no_such_file }}</p>
             </div>
 
             <div class="command-line">
@@ -39,7 +38,7 @@ permalink: /404.html
  ███████╗██║  ██║██║  ██║╚██████╔╝██║  ██║
  ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝
                     </pre>
-                    <p class="error-description">PAGE NOT FOUND IN CYBERSPACE</p>
+                    <p class="error-description">{{ site.data.translations[site.active_lang].error.page_not_found }}</p>
                 </div>
             </div>
 
@@ -48,8 +47,8 @@ permalink: /404.html
             </div>
             <div class="response">
                 <div class="suggestions">
-                    <p><a href="{{ '/' | relative_url }}">/ (HOME)</a></p>
-                    <p><a href="{{ '/about/' | relative_url }}">/about/ (ABOUT)</a></p>
+                    <p><a href="{{ '/' | relative_url }}">{{ site.data.translations[site.active_lang].error.home_link }}</a></p>
+                    <p><a href="{{ '/about/' | relative_url }}">{{ site.data.translations[site.active_lang].error.about_link }}</a></p>
                 </div>
             </div>
 
