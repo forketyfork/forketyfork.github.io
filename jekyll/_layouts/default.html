@@ -45,10 +45,18 @@
                             {% if lang == site.active_lang %}
                                 <span class="lang-active">{{ lang | upcase }}</span>
                             {% else %}
-                                {% if lang == site.default_lang %}
-                                    <a {% static_href %}href="/"{% endstatic_href %}>{{ lang | upcase }}</a>
+                                {% if page.id %}
+                                    {% if lang == site.default_lang %}
+                                        <a {% static_href %}href="{{ page.url }}"{% endstatic_href %}>{{ lang | upcase }}</a>
+                                    {% else %}
+                                        <a {% static_href %}href="/{{ lang }}{{ page.url }}"{% endstatic_href %}>{{ lang | upcase }}</a>
+                                    {% endif %}
                                 {% else %}
-                                    <a {% static_href %}href="/{{ lang }}/"{% endstatic_href %}>{{ lang | upcase }}</a>
+                                    {% if lang == site.default_lang %}
+                                        <a {% static_href %}href="/"{% endstatic_href %}>{{ lang | upcase }}</a>
+                                    {% else %}
+                                        <a {% static_href %}href="/{{ lang }}/"{% endstatic_href %}>{{ lang | upcase }}</a>
+                                    {% endif %}
                                 {% endif %}
                             {% endif %}
                             {% unless forloop.last %}<span class="lang-separator">|</span>{% endunless %}
