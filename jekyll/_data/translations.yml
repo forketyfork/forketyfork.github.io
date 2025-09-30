@@ -1,0 +1,35 @@
+en:
+  nav:
+    home: "HOME"
+    about: "ABOUT"
+  footer:
+    made_with: "MADE WITH"
+    and: "AND"
+    nostalgia: "NOSTALGIA"
+  post:
+    tags: "Tags"
+  date_format: "%d-%b-%Y"
+
+de:
+  nav:
+    home: "STARTSEITE"
+    about: "ÜBER"
+  footer:
+    made_with: "GEMACHT MIT"
+    and: "UND"
+    nostalgia: "NOSTALGIE"
+  post:
+    tags: "Tags"
+  date_format: "%d.%m.%Y"
+
+ru:
+  nav:
+    home: "ГЛАВНАЯ"
+    about: "О БЛОГЕ"
+  footer:
+    made_with: "СДЕЛАНО С"
+    and: "И"
+    nostalgia: "НОСТАЛЬГИЕЙ"
+  post:
+    tags: "Метки"
+  date_format: "%d.%m.%Y"

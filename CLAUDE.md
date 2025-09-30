@@ -89,6 +89,7 @@ All development commands are available via `just` (run `just --list` to see all 
 
 ## Blog Post Creation
 
+### English Posts (Default)
 New posts go in `jekyll/_posts/` with format `YYYY-MM-DD-title.md` and require front matter:
 ```yaml
 ---
@@ -98,6 +99,20 @@ date: YYYY-MM-DD
 tags: [tag1, tag2]
 ---
 ```
+
+### Multilingual Posts
+The site supports English (default), German, and Russian using [jekyll-polyglot](https://github.com/untra/polyglot).
+
+**Directory structure:**
+- English posts: `jekyll/_posts/YYYY-MM-DD-title.md`
+- German posts: `jekyll/_posts/de/YYYY-MM-DD-title.md`
+- Russian posts: `jekyll/_posts/ru/YYYY-MM-DD-title.md`
+
+**Translations:**
+- UI translations are in `jekyll/_data/translations.yml`
+- Language switcher appears in the navigation (EN | DE | RU)
+- URLs are automatically prefixed with language code (e.g., `/de/blog/...`, `/ru/blog/...`)
+- English (default language) has no prefix in URLs
 
 ## Deployment & CI/CD
 

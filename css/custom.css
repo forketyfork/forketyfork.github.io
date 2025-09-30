@@ -163,6 +163,31 @@ a:hover {
     font-weight: bold;
 }
 
+/* Language Switcher */
+.lang-switcher {
+    margin-left: auto;
+}
+
+.lang-switcher a,
+.lang-switcher .lang-active {
+    padding: 10px 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+}
+
+.lang-switcher .lang-active {
+    display: inline-block;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    font-weight: bold;
+}
+
+.lang-switcher .lang-separator {
+    padding: 0 5px;
+    color: var(--text-color);
+}
+
 /* Latest Posts Section */
 .latest-posts {
     margin-bottom: 50px;

@@ -3,7 +3,7 @@ layout: default
 ---
 <article class="post">
     <h1>{{ page.title }}</h1>
-    <div class="post-date">{{ page.date | date: "%d-%b-%Y" }}</div>
+    <div class="post-date">{{ page.date | date: site.data.translations[site.active_lang].date_format }}</div>
 
     {% if page.tags %}
     <div class="tags">
@@ -29,7 +29,7 @@ layout: default
         data-emit-metadata="0"
         data-input-position="bottom"
         data-theme="{% if jekyll.environment == 'development' %}http://localhost:4000{% else %}{{ site.url }}{% endif %}{{ site.baseurl }}/css/giscus-custom.css"
-        data-lang="en"
+        data-lang="{{ site.active_lang }}"
         crossorigin="anonymous"
         async>
 </script>
