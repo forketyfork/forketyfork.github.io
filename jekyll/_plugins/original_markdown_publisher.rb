@@ -21,7 +21,7 @@ module OriginalMarkdownPublisher
                       begin
                         content = File.read(file)
                         if content =~ /\A(---\s*\n.*?\n?)^((---|\.\.\.)\s*$\n?)/m
-                          data = YAML.safe_load(Regexp.last_match(1))
+                          data = YAML.safe_load(Regexp.last_match(1), permitted_classes: [Date])
                           {
                             lang: data['lang'] || site.config['default_lang'],
                             title: data['title'],
