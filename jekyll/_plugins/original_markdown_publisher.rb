@@ -10,7 +10,6 @@ module OriginalMarkdownPublisher
 
       original_content = File.binread(source_path)
       relative_url = post.url.sub(%r{^/}, '')
-      relative_url = relative_url.chomp('/')
       next if relative_url.empty?
 
       destination_path = File.join(site.dest, "#{relative_url}.md")
