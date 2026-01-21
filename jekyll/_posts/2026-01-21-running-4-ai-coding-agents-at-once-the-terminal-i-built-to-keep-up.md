@@ -23,7 +23,7 @@ A shell prompt looks the same whether the last command succeeded, failed, or is 
 
 ## What I built
 
-Architect is a terminal I wrote specifically for this workflow. Show all sessions in a grid, make it easy to switch between them, make it visually obvious which ones need attention.
+[Architect](https://github.com/forketyfork/architect) is a terminal I wrote specifically for this workflow. Show all sessions in a grid, make it easy to switch between them, make it visually obvious which ones need attention.
 
 When an agent finishes a task, the cell hue changes. When it's waiting for approval, it glows. At a glance, I know where to focus.
 
