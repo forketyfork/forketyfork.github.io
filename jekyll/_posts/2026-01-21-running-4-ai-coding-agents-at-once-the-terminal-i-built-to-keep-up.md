@@ -13,7 +13,7 @@ The problems I've faced:
 - I tried other terminals, but they either lack native agentic support or are overloaded with AI features that rub me the wrong way.
 - I tried tools that wrap agent executions into a UI, but always reverted back to the terminal because they didn't provide the level of control I needed, or the ability to use the same window for different tasks. Agent was in one place, terminal in another.
 
-## The Attention Problem
+## The attention problem
 
 Here's what happens when you run 4 Claude Code sessions in multiple terminal tabs: nothing, visually. All four tabs look the same. One agent finishes and sits there, waiting for your next prompt. Another hits a permission check and needs approval. You don't notice because you're focused on tab 3, watching it churn through a file. Twenty minutes later you realize agent 1 has been idle the whole time.
 
@@ -21,9 +21,9 @@ I tried the obvious solutions — desktop notifications, but they come and go at
 
 A shell prompt looks the same whether the last command succeeded, failed, or is waiting for human input. There's no semantic information.
 
-## What I Built
+## What I built
 
-Architect is a terminal I wrote specifically for this workflow. The core idea is simple: show all sessions in a grid, make it easy to switch between them, and make it visually obvious which ones need attention.
+Architect is a terminal I wrote specifically for this workflow. Show all sessions in a grid, make it easy to switch between them, make it visually obvious which ones need attention.
 
 When an agent finishes a task, the cell hue changes. When it's waiting for approval, it glows. At a glance, I know where to focus.
 
@@ -35,7 +35,7 @@ That's it. That's the feature.
 
 Everything else — the smooth animations, the expand/collapse, the keyboard shortcuts — exists to make this core loop fast. See the grid. Spot the agent that needs you. Expand. Respond. Collapse. Back to the grid.
 
-## The Workflow
+## The workflow
 
 I start with a single terminal. When I need another, I hit ⌘N and the grid expands automatically. When I'm done with one, ⌘W closes it and the grid contracts. If I need to focus on a specific terminal, I hit ⌘Enter, or do a long Esc hold to pop back to the grid.
 
@@ -43,13 +43,13 @@ I start with a single terminal. When I need another, I hit ⌘N and the grid exp
   <source src="/img/grid.mp4" type="video/mp4">
 </video>
 
-If I need multiple tasks in the same repo, I hit ⌘T to open a worktree popup. ⌘0 creates a new worktree, ⌘1/⌘2/⌘3... switches to an existing one. I can delete worktrees from the same popup. The integration works by sending git commands to the terminal — fully traceable, no magic. This simple solution works like clockwork and removes friction from multitasking.
+If I need multiple tasks in the same repo, I hit ⌘T to open a worktree popup. ⌘0 creates a new worktree, ⌘1/⌘2/⌘3... switches to an existing one. I can delete worktrees from the same popup. The integration works by sending git commands to the terminal — fully traceable, no magic.
 
 <video class="post-video" autoplay loop muted playsinline controls>
   <source src="/img/worktrees.mp4" type="video/mp4">
 </video>
 
-## Status Detection
+## Status detection
 
 It's based on hooks. Many agents support them, so it's not limited to the big 3. I provide a Python script you can call to highlight the cell where it's running.
 
@@ -61,24 +61,22 @@ I learned a lot of agent quirks along the way:
 
 ## Why Zig?
 
-The short answer: I wanted to learn Zig, and terminal emulators are a good project for it.
+I wanted to learn Zig, and terminal emulators are a good project for it. Also, Architect builds on [ghostty-vt](https://github.com/ghostty-org/ghostty), which is written in Zig — using the same language meant I could integrate directly without FFI overhead. SDL3 for rendering, ghostty-vt for terminal emulation, Zig for glue.
 
-The longer answer: Architect builds on [ghostty-vt](https://github.com/ghostty-org/ghostty), which is written in Zig. Using the same language meant I could integrate directly without FFI overhead. SDL3 for rendering, ghostty-vt for terminal emulation, Zig for glue.
+## What's missing
 
-## What's Missing
-
-Architect is early. I use it daily as my main terminal, but there are gaps:
+Architect is early. I use it daily, but there are gaps:
 
 - **Linux support**: macOS only for now.
 - **Customizable keybindings**: Hardcoded. You get what I like.
 - **Windows**: Not happening anytime soon.
-- **Bugs and UI quirks**: Plenty, probably.
+- **Bugs and UI quirks**: Plenty.
 
 Agent detection is also limited to a handful of tools.
 
-## Try It
+## Try it
 
-If you're running multiple AI agents and fighting the attention problem, give Architect a shot.
+If you're running multiple AI agents and fighting the same attention problem, give Architect a shot.
 
 [Download the latest release](https://github.com/forketyfork/architect/releases) or install via Homebrew:
 ```bash
@@ -91,10 +89,8 @@ Issues and PRs welcome.
 
 ---
 
-Architect is part of a set of tools I'm building for AI-assisted development. If you're interested in multi-agent workflows, you might also find these useful:
+I've been building a few other tools for multi-agent workflows:
 
 - [**Stepcat**](https://github.com/forketyfork/stepcat) — orchestrates multi-step implementation plans with Claude Code and Codex
 - [**Marx**](https://github.com/forketyfork/marx) — runs Claude, Codex, and Gemini in parallel for PR code review
 - [**Claude Nein**](https://github.com/forketyfork/claude-nein) — macOS menu bar app to track Claude Code spending
-
-More on those soon.
