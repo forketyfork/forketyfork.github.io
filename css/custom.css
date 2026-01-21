@@ -10,6 +10,7 @@
   --card-bg-color: rgba(119, 137, 209, 0.1); /* Translucent periwinkle cards */
   --header-bg-color: #42264a;       /* Deep purple - sets the retro tone */
   --footer-bg-color: #42264a;
+  --header-glow: 0 0 8px var(--primary-color); /* Glow effect for headers */
 }
 
 /* Base Styles */
@@ -47,11 +48,11 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Press Start 2P', monospace;
+    font-family: 'Audiowide', monospace;
     margin-top: 0;
     text-transform: uppercase;
     color: var(--secondary-color);
-    text-shadow: 3px 3px 0 var(--primary-color);
+    text-shadow: var(--header-glow);
 }
 
 h1 {
@@ -248,7 +249,7 @@ a:hover {
 .post-title {
     margin-top: 0;
     margin-bottom: 15px;
-    text-shadow: 3px 3px 0 var(--primary-color);
+    text-shadow: var(--header-glow);
 }
 
 .post-title a {
@@ -412,7 +413,7 @@ a:hover {
 .tag-title a {
     color: var(--secondary-color);
     text-decoration: none;
-    text-shadow: 3px 3px 0 var(--primary-color);
+    text-shadow: var(--header-glow);
 }
 
 .tag-title a:hover {
@@ -517,6 +518,17 @@ a:hover {
     height: auto;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
+}
+
+/* Post videos - full width with responsive scaling */
+.post-video {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 p > code {
