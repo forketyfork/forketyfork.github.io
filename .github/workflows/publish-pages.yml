@@ -150,27 +150,20 @@ jobs:
 
           head -n 10000 /tmp/url_list.txt > /tmp/url_list_capped.txt
 
-          python3 - "$host" "$key" "$keyLocation" <<'PY'
-import json
-import sys
-
-host = sys.argv[1]
-key = sys.argv[2]
-keyLocation = sys.argv[3]
-
-with open("/tmp/url_list_capped.txt", "r", encoding="utf-8") as f:
-    urls = [line.strip() for line in f if line.strip()]
-
-payload = {
-    "host": host,
-    "key": key,
-    "keyLocation": keyLocation,
-    "urlList": urls,
-}
-
-with open("/tmp/indexnow.json", "w", encoding="utf-8") as out:
-    json.dump(payload, out)
-PY
+          # Build JSON payload
+          {
+            echo '{"host":"'"$host"'","key":"'"$key"'","keyLocation":"'"$keyLocation"'","urlList":['
+            first=true
+            while IFS= read -r url; do
+              if [ "$first" = true ]; then
+                first=false
+              else
+                echo ','
+              fi
+              echo -n '"'"$url"'"'
+            done < /tmp/url_list_capped.txt
+            echo ']}'
+          } > /tmp/indexnow.json
 
           echo "Submitting $(wc -l < /tmp/url_list_capped.txt) URLs to IndexNow"
           curl -sS -X POST "https://api.indexnow.org/indexnow" \
