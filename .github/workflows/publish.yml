@@ -50,7 +50,6 @@ jobs:
     name: Notify IndexNow
     runs-on: ubuntu-latest
     needs: deploy
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -168,9 +167,10 @@ payload = {
     "keyLocation": keyLocation,
     "urlList": urls,
 }
-print(json.dumps(payload))
+
+with open("/tmp/indexnow.json", "w", encoding="utf-8") as out:
+    json.dump(payload, out)
 PY
-          > /tmp/indexnow.json
 
           echo "Submitting $(wc -l < /tmp/url_list_capped.txt) URLs to IndexNow"
           curl -sS -X POST "https://api.indexnow.org/indexnow" \
@@ -178,7 +178,7 @@ PY
             --data-binary @/tmp/indexnow.json \
             -D /tmp/indexnow_headers.txt \
             -o /tmp/indexnow_body.txt \
-            --fail-with-body || true
+            --fail-with-body
 
           echo "Response headers:"
           cat /tmp/indexnow_headers.txt
