@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -45,3 +45,148 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  indexnow:
+    name: Notify IndexNow
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v7
+        with:
+          name: jekyll-build
+          path: _site
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Determine changed URLs
+        shell: bash
+        run: |
+          set -euo pipefail
+          host="forketyfork.github.io"
+
+          # Compare against last-deploy tag, or submit all URLs if tag doesn't exist
+          if git rev-parse last-deploy >/dev/null 2>&1; then
+            echo "Comparing against last-deploy tag"
+            changed_files=$(git diff --name-only last-deploy HEAD)
+          else
+            echo "No last-deploy tag found, submitting all URLs"
+            if [ -f "_site/sitemap.xml" ]; then
+              grep -oE '<loc>[^<]+</loc>' _site/sitemap.xml | \
+                sed -E 's#</?loc>##g' > /tmp/url_list.txt
+            else
+              touch /tmp/url_list.txt
+            fi
+            exit 0
+          fi
+
+          if [ -z "$changed_files" ]; then
+            echo "No changed files detected, skipping IndexNow"
+            touch /tmp/url_list.txt
+            exit 0
+          fi
+
+          echo "Changed files:"
+          echo "$changed_files"
+
+          # Check if site-wide files changed (layouts, config, includes)
+          # If so, submit all URLs from sitemap
+          if echo "$changed_files" | grep -qE '^jekyll/(_layouts/|_includes/|_config\.yml)'; then
+            echo "Site-wide files changed, submitting all URLs"
+            if [ -f "_site/sitemap.xml" ]; then
+              grep -oE '<loc>[^<]+</loc>' _site/sitemap.xml | \
+                sed -E 's#</?loc>##g' > /tmp/url_list.txt
+            else
+              touch /tmp/url_list.txt
+            fi
+            exit 0
+          fi
+
+          # Extract URLs only for changed posts
+          touch /tmp/url_list.txt
+
+          echo "$changed_files" | while read -r file; do
+            # Match posts: jekyll/_posts/YYYY-MM-DD-title.md or jekyll/_posts/lang/YYYY-MM-DD-title.md
+            if [[ "$file" =~ ^jekyll/_posts/(([a-z]{2})/)?([0-9]{4})-([0-9]{2})-([0-9]{2})-(.+)\.md$ ]]; then
+              lang="${BASH_REMATCH[2]}"
+              year="${BASH_REMATCH[3]}"
+              month="${BASH_REMATCH[4]}"
+              day="${BASH_REMATCH[5]}"
+              slug="${BASH_REMATCH[6]}"
+
+              if [ -n "$lang" ]; then
+                url="https://${host}/${lang}/blog/${year}/${month}/${day}/${slug}/"
+              else
+                url="https://${host}/blog/${year}/${month}/${day}/${slug}/"
+              fi
+              echo "$url" >> /tmp/url_list.txt
+              echo "Mapped: $file -> $url"
+            fi
+          done
+
+          # Deduplicate
+          sort -u /tmp/url_list.txt -o /tmp/url_list.txt
+
+          echo "URLs to submit: $(wc -l < /tmp/url_list.txt)"
+
+      - name: Submit URLs to IndexNow
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ ! -s "/tmp/url_list.txt" ]; then
+            echo "No URLs to submit, skipping IndexNow"
+            exit 0
+          fi
+
+          host="forketyfork.github.io"
+          key="9a04216fbafa419497f3ce6432219838"
+          keyLocation="https://${host}/${key}.txt"
+
+          head -n 10000 /tmp/url_list.txt > /tmp/url_list_capped.txt
+
+          python3 - "$host" "$key" "$keyLocation" <<'PY'
+import json
+import sys
+
+host = sys.argv[1]
+key = sys.argv[2]
+keyLocation = sys.argv[3]
+
+with open("/tmp/url_list_capped.txt", "r", encoding="utf-8") as f:
+    urls = [line.strip() for line in f if line.strip()]
+
+payload = {
+    "host": host,
+    "key": key,
+    "keyLocation": keyLocation,
+    "urlList": urls,
+}
+print(json.dumps(payload))
+PY
+          > /tmp/indexnow.json
+
+          echo "Submitting $(wc -l < /tmp/url_list_capped.txt) URLs to IndexNow"
+          curl -sS -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            --data-binary @/tmp/indexnow.json \
+            -D /tmp/indexnow_headers.txt \
+            -o /tmp/indexnow_body.txt \
+            --fail-with-body || true
+
+          echo "Response headers:"
+          cat /tmp/indexnow_headers.txt
+          echo "Response body:"
+          cat /tmp/indexnow_body.txt
+
+      - name: Update last-deploy tag
+        shell: bash
+        run: |
+          git tag -f last-deploy HEAD
+          git push -f origin last-deploy
