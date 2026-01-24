@@ -7,3 +7,4 @@ _site/
 jekyll/dist/
 .direnv
 .DS_Store
+.playwright-mcp/
