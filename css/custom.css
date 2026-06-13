@@ -875,3 +875,312 @@ p > code {
         text-align: center;
     }
 }
+
+/* ==========================================================================
+   Architect landing page — scoped green palette
+   The site recolors through CSS custom properties, so redefining them on
+   .architect-landing repaints the whole page green with no global impact.
+   ========================================================================== */
+
+/* Absorb the full-bleed band's 100vw width so classic (non-overlay)
+   scrollbars don't trigger a page-level horizontal scrollbar. */
+html,
+body {
+    overflow-x: clip;
+}
+
+.architect-landing {
+    --primary-color: #34e27a;          /* Phosphor green - links, borders, CTAs */
+    --secondary-color: #2fd07f;        /* Terminal green - headings */
+    --accent-color: #b6f24a;           /* Chartreuse - prompts, labels, dates */
+    --background-color: #04140d;       /* Near-black green - page background */
+    --grid-color: rgba(52, 226, 122, 0.09);
+    --card-bg-color: rgba(52, 226, 122, 0.07);
+    --header-glow: 0 0 8px var(--primary-color);
+
+    color: var(--text-color);
+
+    /* Full-bleed dark-green band with a faint phosphor grid */
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    background-color: var(--background-color);
+    background-image:
+        linear-gradient(0deg, var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 20px 20px;
+    padding: 3.5rem 0 4.5rem;
+    overflow-x: clip;
+}
+
+/* Re-align inner content to the site container width */
+.architect-landing > * {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Visible keyboard focus for the page's links and buttons */
+.architect-landing a:focus-visible,
+.architect-landing .arch-btn:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* --- Hero --- */
+.arch-hero {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.arch-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(2rem, 7vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-transform: none;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+}
+
+.arch-title .arch-mark {
+    -webkit-text-fill-color: var(--primary-color);
+    color: var(--primary-color);
+    margin-right: 0.3em;
+    text-shadow: 0 0 18px var(--primary-color);
+}
+
+.arch-tagline {
+    font-family: 'Audiowide', monospace;
+    color: var(--secondary-color);
+    font-size: clamp(1.1rem, 2.6vw, 1.7rem);
+    text-shadow: var(--header-glow);
+    margin: 0 auto 1.25rem;
+    max-width: 760px;
+    text-transform: uppercase;
+}
+
+.arch-subtext {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.15rem;
+    color: var(--text-color);
+    max-width: 680px;
+    margin: 0 auto 2rem;
+    opacity: 0.92;
+}
+
+.arch-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-bottom: 2.25rem;
+    padding: 0;
+    list-style: none;
+}
+
+.arch-badges li {
+    margin: 0;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    background: rgba(52, 226, 122, 0.08);
+    border: 1px solid rgba(52, 226, 122, 0.35);
+    padding: 0.25rem 0.85rem;
+    border-radius: 4px;
+}
+
+.arch-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.arch-btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.arch-btn-primary {
+    background: var(--primary-color);
+    color: var(--background-color);
+}
+
+.arch-btn-primary:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--background-color);
+    box-shadow: 0 0 18px var(--primary-color);
+    text-decoration: none;
+}
+
+.arch-btn-secondary {
+    background: transparent;
+    color: var(--primary-color);
+}
+
+.arch-btn-secondary:hover {
+    background: rgba(52, 226, 122, 0.1);
+    color: var(--accent-color);
+    box-shadow: 0 0 14px rgba(52, 226, 122, 0.5);
+    text-decoration: none;
+}
+
+.arch-hero-shot {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: auto;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(52, 226, 122, 0.25), 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* --- Generic landing section --- */
+.arch-section {
+    margin-bottom: 3.5rem;
+}
+
+.arch-section > p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Feature grid --- */
+.arch-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.75rem;
+}
+
+.arch-feature-card {
+    background: var(--card-bg-color);
+    border: 2px solid rgba(52, 226, 122, 0.4);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.arch-feature-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 24px rgba(52, 226, 122, 0.22);
+    transform: translateY(-3px);
+}
+
+.arch-feature-shot {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    border-bottom: 1px solid rgba(52, 226, 122, 0.35);
+    background: #02100a;
+}
+
+.arch-feature-body {
+    padding: 1.25rem 1.4rem 1.5rem;
+}
+
+.arch-feature-body h3 {
+    color: var(--accent-color);
+    text-shadow: 0 0 6px var(--accent-color);
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+}
+
+.arch-feature-body p {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    opacity: 0.92;
+}
+
+/* --- Install block --- */
+.arch-install .terminal-content {
+    padding: 1.75rem;
+}
+
+.arch-install pre {
+    background: rgba(52, 226, 122, 0.06);
+    border: 1px solid rgba(52, 226, 122, 0.4);
+    border-radius: 8px;
+    padding: 1.25rem;
+    overflow-x: auto;
+    color: var(--primary-color);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0 0 1.25rem;
+}
+
+.arch-install .arch-caveat {
+    color: var(--accent-color);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Related tools --- */
+.arch-related-list {
+    list-style: none;
+    margin-left: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.85rem;
+}
+
+.arch-related-list li {
+    margin: 0;
+    padding: 0.85rem 1.1rem;
+    border-left: 3px solid var(--primary-color);
+    background: rgba(52, 226, 122, 0.05);
+}
+
+.arch-related-list a {
+    font-family: 'Audiowide', monospace;
+    color: var(--secondary-color);
+}
+
+.arch-related-list a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 6px var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .architect-landing {
+        padding: 2rem 0 2.5rem;
+    }
+
+    .arch-cta-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .arch-btn {
+        text-align: center;
+    }
+
+    .arch-features {
+        grid-template-columns: 1fr;
+    }
+}

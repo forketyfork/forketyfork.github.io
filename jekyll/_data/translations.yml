@@ -2,6 +2,7 @@ en:
   nav:
     home: "HOME"
     about: "ABOUT"
+    architect: "ARCHITECT"
   footer:
     made_with: "MADE WITH"
     and: "AND"
@@ -33,6 +34,7 @@ de:
   nav:
     home: "STARTSEITE"
     about: "ÜBER"
+    architect: "ARCHITECT"
   footer:
     made_with: "GEMACHT MIT"
     and: "UND"
@@ -64,6 +66,7 @@ ru:
   nav:
     home: "ГЛАВНАЯ"
     about: "О БЛОГЕ"
+    architect: "ARCHITECT"
   footer:
     made_with: "СДЕЛАНО С"
     and: "И"
