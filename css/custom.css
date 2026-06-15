@@ -877,49 +877,42 @@ p > code {
 }
 
 /* ==========================================================================
-   Architect landing page — scoped green palette
-   The site recolors through CSS custom properties, so redefining them on
-   .architect-landing repaints the whole page green with no global impact.
+   Project theme system
+   A project landing page sets `theme: <name>` in its front matter; the layout
+   renders that as `body.theme-<name>`. The matching theme block below overrides
+   the site's palette custom properties — including the header/footer chrome —
+   so the whole page (nav, footer, background, and content) adopts the project's
+   colors. Pages without a `theme` keep the site's default palette.
+
+   To add a project: set `theme: <name>` in its page front matter and add a
+   `.theme-<name> { ... }` block here with that project's palette.
    ========================================================================== */
 
-/* Absorb the full-bleed band's 100vw width so classic (non-overlay)
-   scrollbars don't trigger a page-level horizontal scrollbar. */
+/* Guard against accidental horizontal scrolling from full-width sections */
 html,
 body {
     overflow-x: clip;
 }
 
-.architect-landing {
+/* Architect — phosphor terminal green */
+.theme-architect {
     --primary-color: #34e27a;          /* Phosphor green - links, borders, CTAs */
     --secondary-color: #2fd07f;        /* Terminal green - headings */
     --accent-color: #b6f24a;           /* Chartreuse - prompts, labels, dates */
     --background-color: #04140d;       /* Near-black green - page background */
     --grid-color: rgba(52, 226, 122, 0.09);
     --card-bg-color: rgba(52, 226, 122, 0.07);
+    --header-bg-color: #0a2417;        /* Dark green - header/footer chrome */
+    --footer-bg-color: #0a2417;
     --header-glow: 0 0 8px var(--primary-color);
-
-    color: var(--text-color);
-
-    /* Full-bleed dark-green band with a faint phosphor grid */
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    background-color: var(--background-color);
-    background-image:
-        linear-gradient(0deg, var(--grid-color) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-    background-size: 20px 20px;
-    padding: 3.5rem 0 4.5rem;
-    overflow-x: clip;
 }
 
-/* Re-align inner content to the site container width */
-.architect-landing > * {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+/* ==========================================================================
+   Architect landing page layout
+   ========================================================================== */
+
+.architect-landing {
+    padding: 1rem 0 2.5rem;
 }
 
 /* Visible keyboard focus for the page's links and buttons */

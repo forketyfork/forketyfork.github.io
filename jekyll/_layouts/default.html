@@ -21,7 +21,7 @@
     {% seo %}
 </head>
 
-<body>
+<body{% if page.theme %} class="theme-{{ page.theme }}"{% endif %}>
     <div class="custom-cursor"></div>
 
     <div class="container">
