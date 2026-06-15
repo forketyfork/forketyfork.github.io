@@ -1,17 +1,17 @@
 ---
 layout: default
-title: "Architect — a terminal for parallel AI coding agents"
+title: "Architect — a grid of terminals for AI coding agents"
 permalink: /architect/
 theme: architect
-description: "Architect is a macOS terminal for running multiple AI coding agents in parallel. A status-aware grid shows at a glance which agent needs your attention."
+description: "Architect runs your AI coding agents as a grid of agent-aware terminals on macOS. Spot the one that needs you, review its diff, switch directories — all built in."
 image: /img/architect/hero.png
 ---
 <div class="architect-landing">
 
     <section class="arch-hero">
         <h1 class="arch-title"><span class="arch-mark">&#9650;</span>ARCHITECT</h1>
-        <p class="arch-tagline">A terminal for running AI coding agents in parallel</p>
-        <p class="arch-subtext">Run Claude Code, Codex, and Gemini side by side in a grid and see at a glance which one needs you. macOS, built in Zig on ghostty-vt and SDL3.</p>
+        <p class="arch-tagline">A grid of agent-aware terminals</p>
+        <p class="arch-subtext">Not another sessions list, chat pane, and diff column. Architect lays your AI coding agents out as a grid of live terminals — picture The Architect watching his wall of monitors — and every screen lights up the moment its agent needs you.</p>
 
         <ul class="arch-badges" aria-label="Project facts">
             <li>macOS</li>
@@ -26,12 +26,14 @@ image: /img/architect/hero.png
             <a class="arch-btn arch-btn-secondary" href="https://github.com/forketyfork/architect">View on GitHub</a>
         </div>
 
-        <img class="arch-hero-shot" src="{{ '/img/architect/hero.png' | relative_url }}" alt="Architect showing multiple AI coding agents running in a grid of terminals">
+        <img class="arch-hero-shot" src="{{ '/img/architect/hero.png' | relative_url }}" alt="Architect showing AI coding agents running in a grid of terminals">
     </section>
 
-    <section class="arch-section arch-problem">
-        <h2 class="section-title">The attention problem</h2>
-        <p>Run four agents in four terminal tabs and visually nothing happens: all four tabs look the same. One finishes and sits waiting for your next prompt. Another hits a permission check and waits. You're watching tab 3 and miss both, then twenty minutes later find an agent that's been idle the whole time. Desktop notifications come and go at the OS's whim, and arranging windows by hand doesn't scale. The real problem is that terminals don't know what's running inside them, so a prompt waiting for you looks the same as a command still churning. Architect adds the missing signal.</p>
+    <section class="arch-section">
+        <h2 class="section-title">A different shape</h2>
+        <p>You've seen the layout before: a list of sessions down the left, an agent chat in the middle, the diff on the right. Almost every tool ships the same three panes.</p>
+        <p>Architect takes a different shape. Picture the Architect's room in The Matrix Reloaded — one chair, a wall of monitors, every screen showing something else. That's the model: a grid of real terminals, each running its own agent, each able to call for you on its own. Glance at the wall, find the screen that's lit, go there.</p>
+        <p>And it's all built in. The agent-awareness, the diff view, directory switching, spawning terminals — no plugins to install, no obscure config files to wire together. It works the moment you open it.</p>
     </section>
 
     <section class="arch-section">
@@ -39,50 +41,50 @@ image: /img/architect/hero.png
         <div class="arch-features">
 
             <article class="arch-feature-card">
-                <img class="arch-feature-shot" src="{{ '/img/architect/status.png' | relative_url }}" alt="A terminal cell glowing to signal an agent is waiting for approval">
+                <img class="arch-feature-shot" src="{{ '/img/architect/status.png' | relative_url }}" alt="A terminal cell tinted and glowing to signal its agent needs attention">
                 <div class="arch-feature-body">
                     <h3>Status highlights</h3>
-                    <p>A cell changes hue when its agent finishes a task and glows when it's waiting for approval, so you scan the grid and know where to focus. Detection runs on agent hooks, so it works beyond the big three.</p>
+                    <p>Every terminal is agent-aware. A cell shifts its tint and animates the instant its agent finishes or stops for approval, so one look at the grid tells you where to go. Detection runs on agent hooks, so it isn't tied to a single CLI.</p>
                 </div>
             </article>
 
             <article class="arch-feature-card">
-                <img class="arch-feature-shot" src="{{ '/img/architect/grid.png' | relative_url }}" alt="Architect's dynamic grid of terminals">
+                <img class="arch-feature-shot" src="{{ '/img/architect/grid.png' | relative_url }}" alt="Architect's grid of terminals reflowing as cells are added">
                 <div class="arch-feature-body">
-                    <h3>Dynamic grid</h3>
-                    <p>Start with one terminal in full view. Press &#8984;N to add another and the grid expands; close one with &#8984;W and it compacts forward. &#8984;Enter expands a cell to full screen, &#8984;Arrow moves focus, &#8984;1&#8211;&#8984;0 jumps to a slot.</p>
+                    <h3>A grid of terminals</h3>
+                    <p>Start with one terminal; &#8984;N spawns another and the grid reflows, &#8984;W closes one and it compacts forward. &#8984;Enter blows a cell up to full screen, &#8984;Arrow and &#8984;1&#8211;&#8984;0 move focus. Spawn, switch, and close without leaving the keyboard.</p>
                 </div>
             </article>
 
             <article class="arch-feature-card">
-                <img class="arch-feature-shot" src="{{ '/img/architect/worktrees.png' | relative_url }}" alt="Architect's git worktree picker popup">
+                <img class="arch-feature-shot" src="{{ '/img/architect/mcp.png' | relative_url }}" alt="A terminal cell spawned in Architect by an MCP-aware app">
                 <div class="arch-feature-body">
-                    <h3>Worktree picker (&#8984;T)</h3>
-                    <p>Open a popup to cd into a git worktree for parallel work on separate branches, or create a new one. It works by sending plain git commands to the terminal, fully traceable, no magic.</p>
-                </div>
-            </article>
-
-            <article class="arch-feature-card">
-                <img class="arch-feature-shot" src="{{ '/img/architect/recent.png' | relative_url }}" alt="Architect's recent folders quick-switch popup with search">
-                <div class="arch-feature-body">
-                    <h3>Recent folders (&#8984;O)</h3>
-                    <p>Jump back into a recently visited directory with instant search filtering. Start typing to narrow the list, with substring highlighting, arrow-key navigation, and &#8984;1&#8211;&#8984;9 quick selection.</p>
+                    <h3>MCP support</h3>
+                    <p>Architect runs its own MCP server, so MCP-aware apps can spawn a terminal in any directory on their own. Hand a task off to a worktree and a fresh agent cell shows up &mdash; no manual setup.</p>
                 </div>
             </article>
 
             <article class="arch-feature-card">
                 <img class="arch-feature-shot" src="{{ '/img/architect/diff.png' | relative_url }}" alt="Architect's repo-wide git diff overlay with inline review comments">
                 <div class="arch-feature-body">
-                    <h3>Diff overlay (&#8984;D)</h3>
-                    <p>Pull up a repo-wide git diff across staged, unstaged, and untracked changes. Click any line to leave an inline comment, then send the whole batch to a running agent (or start one) to act on.</p>
+                    <h3>Diff in a keystroke</h3>
+                    <p>&#8984;D pulls up a repo-wide git diff across staged, unstaged, and untracked changes. Click any line to leave an inline comment, then send the whole batch to the agent to act on.</p>
                 </div>
             </article>
 
             <article class="arch-feature-card">
-                <img class="arch-feature-shot" src="{{ '/img/architect/reader.png' | relative_url }}" alt="Architect's centered markdown reader over a terminal's history">
+                <img class="arch-feature-shot" src="{{ '/img/architect/recent.png' | relative_url }}" alt="Architect's recent folders quick-switch popup with search">
                 <div class="arch-feature-body">
-                    <h3>Reader mode (&#8984;R)</h3>
-                    <p>Open a centered markdown reader over the selected terminal's history, with live updates, incremental search, rendered tables and task lists, and clickable links. Useful for long agent output you'd rather read than scroll.</p>
+                    <h3>Recent folders</h3>
+                    <p>&#8984;O jumps back into a directory you've worked in. Type to filter the list, with substring highlighting, arrow-key navigation, and &#8984;1&#8211;&#8984;9 to pick one instantly.</p>
+                </div>
+            </article>
+
+            <article class="arch-feature-card">
+                <img class="arch-feature-shot" src="{{ '/img/architect/worktrees.png' | relative_url }}" alt="Architect's git worktree picker popup">
+                <div class="arch-feature-body">
+                    <h3>Worktree picker</h3>
+                    <p>&#8984;T to cd into a git worktree for parallel work on a separate branch, or create a new one on the spot. It works by sending plain git commands to the terminal &mdash; fully traceable, no magic.</p>
                 </div>
             </article>
 
