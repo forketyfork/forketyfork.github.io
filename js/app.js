@@ -24,3 +24,55 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// Click-to-enlarge video lightbox, used by project landing pages
+document.addEventListener('DOMContentLoaded', function () {
+    const triggers = document.querySelectorAll('[data-lightbox-src]');
+    if (!triggers.length) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.innerHTML =
+        '<div class="lightbox-content">' +
+            '<button type="button" class="lightbox-close" aria-label="Close video">×</button>' +
+            '<video class="lightbox-video" controls playsinline></video>' +
+        '</div>';
+    document.body.appendChild(overlay);
+
+    const video = overlay.querySelector('.lightbox-video');
+    const closeBtn = overlay.querySelector('.lightbox-close');
+
+    function openLightbox(src) {
+        video.src = src;
+        overlay.classList.add('is-open');
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        const playback = video.play();
+        if (playback && playback.catch) playback.catch(function () {});
+        closeBtn.focus();
+    }
+
+    function closeLightbox() {
+        overlay.classList.remove('is-open');
+        overlay.setAttribute('aria-hidden', 'true');
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
+        document.body.style.overflow = '';
+    }
+
+    triggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+            openLightbox(trigger.getAttribute('data-lightbox-src'));
+        });
+    });
+
+    overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeLightbox();
+    });
+    closeBtn.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeLightbox();
+    });
+});

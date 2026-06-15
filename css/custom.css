@@ -1090,6 +1090,103 @@ body {
     background: #02100a;
 }
 
+/* Clickable video preview inside a feature card */
+.arch-feature-media {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    line-height: 0;
+    background: #02100a;
+}
+
+.arch-feature-media:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: -2px;
+}
+
+.arch-media-badge {
+    position: absolute;
+    right: 0.6rem;
+    bottom: 0.6rem;
+    width: 2.1rem;
+    height: 2.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0.15rem;
+    background: rgba(2, 16, 10, 0.7);
+    border: 1px solid var(--primary-color);
+    border-radius: 50%;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.arch-feature-media:hover .arch-media-badge {
+    background: var(--primary-color);
+    color: var(--background-color);
+    box-shadow: 0 0 12px var(--primary-color);
+}
+
+/* Video lightbox overlay */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 4vmin;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.lightbox-overlay.is-open {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    width: min(1100px, 100%);
+}
+
+.lightbox-video {
+    display: block;
+    width: 100%;
+    max-height: 88vh;
+    background: #000;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 0 50px rgba(52, 226, 122, 0.25), 0 16px 40px rgba(0, 0, 0, 0.7);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.lightbox-close:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+}
+
 .arch-feature-body {
     padding: 1.25rem 1.4rem 1.5rem;
 }

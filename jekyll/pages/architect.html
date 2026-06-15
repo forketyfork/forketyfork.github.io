@@ -81,10 +81,15 @@ image: /img/architect/hero.png
             </article>
 
             <article class="arch-feature-card">
-                <img class="arch-feature-shot" src="{{ '/img/architect/worktrees.png' | relative_url }}" alt="Architect's git worktree picker popup">
+                <button type="button" class="arch-feature-media" data-lightbox-src="{{ '/img/architect/worktrees.mp4' | relative_url }}" aria-label="Play the worktree picker demo full size">
+                    <video class="arch-feature-shot" poster="{{ '/img/architect/worktrees.jpg' | relative_url }}" autoplay loop muted playsinline preload="metadata">
+                        <source src="{{ '/img/architect/worktrees.mp4' | relative_url }}" type="video/mp4">
+                    </video>
+                    <span class="arch-media-badge" aria-hidden="true">&#9654;</span>
+                </button>
                 <div class="arch-feature-body">
                     <h3>Worktree picker</h3>
-                    <p>&#8984;T drops you into a git worktree on another branch, or makes a new one. Under the hood it's just git commands sent to the shell, so you can see exactly what it did.</p>
+                    <p>&#8984;T drops you into a git worktree on another branch, or makes a new one. Under the hood it's just git commands sent to the shell, so you can see exactly what it did. Click to watch it full size.</p>
                 </div>
             </article>
 
