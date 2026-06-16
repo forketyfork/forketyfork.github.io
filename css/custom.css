@@ -942,10 +942,12 @@ body {
 }
 
 .arch-title .arch-mark {
-    -webkit-text-fill-color: var(--primary-color);
-    color: var(--primary-color);
+    height: 1em;
+    width: auto;
+    /* Centre the icon on the caps' optical centre (Press Start 2P glyph box) */
+    vertical-align: 0.063em;
     margin-right: 0.3em;
-    text-shadow: 0 0 18px var(--primary-color);
+    filter: drop-shadow(0 0 14px rgba(52, 226, 122, 0.5));
 }
 
 .arch-tagline {
