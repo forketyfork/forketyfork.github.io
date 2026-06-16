@@ -5,6 +5,7 @@ node_modules/
 _site/
 .jekyll-cache/
 jekyll/dist/
+jekyll/_data/manifest.json
 .direnv
 .DS_Store
 .playwright-mcp/
