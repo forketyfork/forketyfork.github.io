@@ -12,15 +12,31 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 // browser cache can no longer serve a stale bundle.
 class JekyllManifestPlugin {
   apply(compiler) {
-    compiler.hooks.done.tap('JekyllManifestPlugin', (stats) => {
+    compiler.hooks.afterEmit.tap('JekyllManifestPlugin', (compilation) => {
+      // Don't overwrite a good manifest when the build has failed.
+      if (compilation.errors.length) return;
+
+      // Take the files straight from the app entrypoint so we only ever pick
+      // up its own hashed bundles, not copied assets (vendor, giscus, etc.).
+      const entrypoint = compilation.entrypoints.get('app');
+      const files = entrypoint ? entrypoint.getFiles() : [];
       const manifest = {};
-      Object.keys(stats.compilation.assets).forEach((name) => {
-        if (name.startsWith('js/app.') && name.endsWith('.js')) {
-          manifest['app.js'] = '/' + name;
-        } else if (name.startsWith('css/style.') && name.endsWith('.css')) {
-          manifest['style.css'] = '/' + name;
-        }
+      files.forEach((name) => {
+        if (name.endsWith('.js')) manifest['app.js'] = '/' + name;
+        else if (name.endsWith('.css')) manifest['style.css'] = '/' + name;
       });
+
+      // Fail the build rather than emit a manifest the layout can't resolve.
+      if (!manifest['app.js'] || !manifest['style.css']) {
+        compilation.errors.push(
+          new Error(
+            'JekyllManifestPlugin: expected hashed JS and CSS in the "app" entrypoint, found ' +
+              JSON.stringify(files)
+          )
+        );
+        return;
+      }
+
       const dataDir = path.resolve(__dirname, 'jekyll', '_data');
       fs.mkdirSync(dataDir, { recursive: true });
       fs.writeFileSync(
