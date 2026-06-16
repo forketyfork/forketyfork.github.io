@@ -38,10 +38,16 @@ image: /img/architect/hero.png
 
     <section class="arch-section">
         <h2 class="section-title">What it does</h2>
+        <p style="text-align:center;">Point at any clip to play it, click to watch it full size.</p>
         <div class="arch-features">
 
             <article class="arch-feature-card">
-                <img class="arch-feature-shot" src="{{ '/img/architect/status.png' | relative_url }}" alt="A terminal cell tinted and glowing to signal its agent needs attention">
+                <button type="button" class="arch-feature-media" data-lightbox-src="{{ '/img/architect/status.mp4' | relative_url }}" aria-label="Play the status highlights demo full size">
+                    <video class="arch-feature-shot" poster="{{ '/img/architect/status.jpg' | relative_url }}" loop muted playsinline preload="metadata">
+                        <source src="{{ '/img/architect/status.mp4' | relative_url }}" type="video/mp4">
+                    </video>
+                    <span class="arch-media-badge" aria-hidden="true">&#9654;</span>
+                </button>
                 <div class="arch-feature-body">
                     <h3>Status highlights</h3>
                     <p>Every terminal watches its agent. When the agent finishes, or stops to ask for approval, the cell shifts its tint and animates. You can tell from across the grid which one needs you. It runs off agent hooks, not one hardcoded CLI.</p>
@@ -49,7 +55,12 @@ image: /img/architect/hero.png
             </article>
 
             <article class="arch-feature-card">
-                <img class="arch-feature-shot" src="{{ '/img/architect/grid.png' | relative_url }}" alt="Architect's grid of terminals reflowing as cells are added">
+                <button type="button" class="arch-feature-media" data-lightbox-src="{{ '/img/architect/grid.mp4' | relative_url }}" aria-label="Play the grid demo full size">
+                    <video class="arch-feature-shot" poster="{{ '/img/architect/grid.jpg' | relative_url }}" loop muted playsinline preload="metadata">
+                        <source src="{{ '/img/architect/grid.mp4' | relative_url }}" type="video/mp4">
+                    </video>
+                    <span class="arch-media-badge" aria-hidden="true">&#9654;</span>
+                </button>
                 <div class="arch-feature-body">
                     <h3>A grid of terminals</h3>
                     <p>One terminal to start. &#8984;N adds another and the grid reflows; &#8984;W closes one and the rest compact forward. &#8984;Enter blows a cell up to full screen, &#8984;Arrow moves focus, &#8984;1&#8211;&#8984;0 jump straight to a slot. It's all keyboard.</p>
@@ -57,7 +68,12 @@ image: /img/architect/hero.png
             </article>
 
             <article class="arch-feature-card">
-                <img class="arch-feature-shot" src="{{ '/img/architect/mcp.png' | relative_url }}" alt="A terminal cell spawned in Architect by an MCP-aware app">
+                <button type="button" class="arch-feature-media" data-lightbox-src="{{ '/img/architect/mcp.mp4' | relative_url }}" aria-label="Play the MCP support demo full size">
+                    <video class="arch-feature-shot" poster="{{ '/img/architect/mcp.jpg' | relative_url }}" loop muted playsinline preload="metadata">
+                        <source src="{{ '/img/architect/mcp.mp4' | relative_url }}" type="video/mp4">
+                    </video>
+                    <span class="arch-media-badge" aria-hidden="true">&#9654;</span>
+                </button>
                 <div class="arch-feature-body">
                     <h3>MCP support</h3>
                     <p>Architect runs its own MCP server. An MCP-aware app can ask it to open a terminal in any directory, so a tool can hand a task to a new worktree and get its own agent cell, no manual setup on your end.</p>
@@ -65,7 +81,12 @@ image: /img/architect/hero.png
             </article>
 
             <article class="arch-feature-card">
-                <img class="arch-feature-shot" src="{{ '/img/architect/diff.png' | relative_url }}" alt="Architect's repo-wide git diff overlay with inline review comments">
+                <button type="button" class="arch-feature-media" data-lightbox-src="{{ '/img/architect/diff.mp4' | relative_url }}" aria-label="Play the diff overlay demo full size">
+                    <video class="arch-feature-shot" poster="{{ '/img/architect/diff.jpg' | relative_url }}" loop muted playsinline preload="metadata">
+                        <source src="{{ '/img/architect/diff.mp4' | relative_url }}" type="video/mp4">
+                    </video>
+                    <span class="arch-media-badge" aria-hidden="true">&#9654;</span>
+                </button>
                 <div class="arch-feature-body">
                     <h3>Diff in a keystroke</h3>
                     <p>&#8984;D shows a repo-wide git diff: staged, unstaged, untracked. Click a line to leave a comment, then send the batch to the agent to act on.</p>
@@ -73,7 +94,12 @@ image: /img/architect/hero.png
             </article>
 
             <article class="arch-feature-card">
-                <img class="arch-feature-shot" src="{{ '/img/architect/recent.png' | relative_url }}" alt="Architect's recent folders quick-switch popup with search">
+                <button type="button" class="arch-feature-media" data-lightbox-src="{{ '/img/architect/recent.mp4' | relative_url }}" aria-label="Play the recent folders demo full size">
+                    <video class="arch-feature-shot" poster="{{ '/img/architect/recent.jpg' | relative_url }}" loop muted playsinline preload="metadata">
+                        <source src="{{ '/img/architect/recent.mp4' | relative_url }}" type="video/mp4">
+                    </video>
+                    <span class="arch-media-badge" aria-hidden="true">&#9654;</span>
+                </button>
                 <div class="arch-feature-body">
                     <h3>Recent folders</h3>
                     <p>&#8984;O brings up the directories you've been in lately. Start typing to filter, arrows to move, &#8984;1&#8211;&#8984;9 to jump. Matches get highlighted as you type.</p>
@@ -82,14 +108,14 @@ image: /img/architect/hero.png
 
             <article class="arch-feature-card">
                 <button type="button" class="arch-feature-media" data-lightbox-src="{{ '/img/architect/worktrees.mp4' | relative_url }}" aria-label="Play the worktree picker demo full size">
-                    <video class="arch-feature-shot" poster="{{ '/img/architect/worktrees.jpg' | relative_url }}" autoplay loop muted playsinline preload="metadata">
+                    <video class="arch-feature-shot" poster="{{ '/img/architect/worktrees.jpg' | relative_url }}" loop muted playsinline preload="metadata">
                         <source src="{{ '/img/architect/worktrees.mp4' | relative_url }}" type="video/mp4">
                     </video>
                     <span class="arch-media-badge" aria-hidden="true">&#9654;</span>
                 </button>
                 <div class="arch-feature-body">
                     <h3>Worktree picker</h3>
-                    <p>&#8984;T drops you into a git worktree on another branch, or makes a new one. Under the hood it's just git commands sent to the shell, so you can see exactly what it did. Click to watch it full size.</p>
+                    <p>&#8984;T drops you into a git worktree on another branch, or makes a new one. Under the hood it's just git commands sent to the shell, so you can see exactly what it did.</p>
                 </div>
             </article>
 

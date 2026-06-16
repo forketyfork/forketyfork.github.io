@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
     overlay.innerHTML =
         '<div class="lightbox-content">' +
             '<button type="button" class="lightbox-close" aria-label="Close video">×</button>' +
-            '<video class="lightbox-video" controls playsinline></video>' +
+            '<video class="lightbox-video" controls loop playsinline></video>' +
         '</div>';
     document.body.appendChild(overlay);
 
@@ -66,6 +66,19 @@ document.addEventListener('DOMContentLoaded', function () {
         trigger.addEventListener('click', function () {
             openLightbox(trigger.getAttribute('data-lightbox-src'));
         });
+
+        // Play the inline preview on hover, reset when the pointer leaves
+        const preview = trigger.querySelector('video');
+        if (preview) {
+            trigger.addEventListener('mouseenter', function () {
+                const playback = preview.play();
+                if (playback && playback.catch) playback.catch(function () {});
+            });
+            trigger.addEventListener('mouseleave', function () {
+                preview.pause();
+                preview.currentTime = 0;
+            });
+        }
     });
 
     overlay.addEventListener('click', function (e) {
