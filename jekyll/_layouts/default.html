@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+    {%- assign css_href = site.data.manifest['style.css'] | default: '/css/style.css' -%}
+    <link rel="stylesheet" href="{{ css_href | relative_url }}">
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/icon.png">
@@ -83,7 +84,8 @@
         </footer>
     </div>
 
-    <script src="{{ 'js/app.js' | relative_url }}"></script>
+    {%- assign js_src = site.data.manifest['app.js'] | default: '/js/app.js' -%}
+    <script src="{{ js_src | relative_url }}"></script>
 
 </body>
 
