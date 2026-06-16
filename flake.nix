@@ -38,7 +38,13 @@
         # Development shell
         devShells.default = pkgs.mkShell {
           inputsFrom = [ ensureGemsetIsFresh ];
-          buildInputs = [ 
+
+          # Gemfile.lock pins platform-specific (arm64-darwin) precompiled gems
+          # that bundix does not vendor into gemset.nix. Force Bundler to resolve
+          # the generic Ruby-platform gems that bundlerEnv builds instead.
+          BUNDLE_FORCE_RUBY_PLATFORM = "1";
+
+          buildInputs = [
             ruby 
             pkgs.bundix 
             gemset 

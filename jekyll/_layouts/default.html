@@ -21,7 +21,7 @@
     {% seo %}
 </head>
 
-<body>
+<body{% if page.theme %} class="theme-{{ page.theme }}"{% endif %}>
     <div class="custom-cursor"></div>
 
     <div class="container">
@@ -36,6 +36,7 @@
                     </li>
                     <li><a href="{{ '/about/' | relative_url }}" {% if page.url=='/about/' %}class="active" {% endif
                             %}>{{ site.data.translations[site.active_lang].nav.about }}</a></li>
+                    <li><a href="{{ '/architect/' | relative_url }}" {% if page.url=='/architect/' %}class="active" {% endif %}>{{ site.data.translations[site.active_lang].nav.architect }}</a></li>
                     <li class="lang-switcher">
                         {% for lang in site.languages %}
                             {% if lang == site.active_lang %}
@@ -76,6 +77,7 @@
                     </li>
                     <li><a href="{{ '/about/' | relative_url }}" {% if page.url=='/about/' %}class="active" {% endif
                             %}>{{ site.data.translations[site.active_lang].nav.about }}</a></li>
+                    <li><a href="{{ '/architect/' | relative_url }}" {% if page.url=='/architect/' %}class="active" {% endif %}>{{ site.data.translations[site.active_lang].nav.architect }}</a></li>
                 </ul>
             </div>
         </footer>

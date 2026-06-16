@@ -1,0 +1,158 @@
+---
+layout: default
+title: "Architect — a grid of terminals for AI coding agents"
+permalink: /architect/
+theme: architect
+description: "Architect is a macOS terminal that runs your AI coding agents in a grid. Each cell shows when its agent needs you, with a diff viewer and directory switcher built in."
+image: /img/architect/hero.png
+---
+<div class="architect-landing">
+
+    <section class="arch-hero">
+        <h1 class="arch-title"><img class="arch-mark" src="{{ '/img/architect/icon.png' | relative_url }}" alt="">ARCHITECT</h1>
+        <p class="arch-tagline">A grid of agent-aware terminals</p>
+        <p class="arch-subtext">Most agent tools hand you a list of sessions and a chat window. Architect doesn't. It's a grid of live terminals, one agent per cell, and a cell changes color the moment its agent needs you.</p>
+
+        <ul class="arch-badges" aria-label="Project facts">
+            <li>macOS</li>
+            <li>Zig</li>
+            <li>ghostty-vt</li>
+            <li>SDL3</li>
+            <li>MIT license</li>
+        </ul>
+
+        <div class="arch-cta-row">
+            <a class="arch-btn arch-btn-primary" href="https://github.com/forketyfork/architect/releases">Download for macOS</a>
+            <a class="arch-btn arch-btn-secondary" href="https://github.com/forketyfork/architect">View on GitHub</a>
+        </div>
+
+        <img class="arch-hero-shot" src="{{ '/img/architect/hero.png' | relative_url }}" alt="Architect showing AI coding agents running in a grid of terminals">
+    </section>
+
+    <section class="arch-section">
+        <h2 class="section-title">A different shape</h2>
+        <p>You've seen the layout before: a list of sessions down the left, an agent chat in the middle, the diff on the right. Almost all of them ship the same three panes.</p>
+        <p>I went the other way. The picture in my head was the Architect's room in The Matrix Reloaded: one chair, a bank of monitors, every screen showing something different. That's what this is. A grid of real terminals, an agent in each, and any of them can grab your attention on its own. You glance at the wall, see which cell is lit, and go.</p>
+        <p>And it's all built in. No plugins, no config files full of settings you have to look up. The diff view, the directory switcher, the agent detection are part of the app, not add-ons you hunt down.</p>
+    </section>
+
+    <section class="arch-section">
+        <h2 class="section-title">What it does</h2>
+        <p style="text-align:center;">Point at any clip to play it, click to watch it full size.</p>
+        <div class="arch-features">
+
+            <article class="arch-feature-card">
+                <button type="button" class="arch-feature-media" data-lightbox-src="{{ '/img/architect/status.mp4' | relative_url }}" aria-label="Play the status highlights demo full size">
+                    <video class="arch-feature-shot" poster="{{ '/img/architect/status.jpg' | relative_url }}" loop muted playsinline preload="metadata">
+                        <source src="{{ '/img/architect/status.mp4' | relative_url }}" type="video/mp4">
+                    </video>
+                    <span class="arch-media-badge" aria-hidden="true">&#9654;</span>
+                </button>
+                <div class="arch-feature-body">
+                    <h3>Status highlights</h3>
+                    <p>Every terminal watches its agent. When the agent finishes, or stops to ask for approval, the cell shifts its tint and animates. You can tell from across the grid which one needs you. It runs off agent hooks, not one hardcoded CLI.</p>
+                </div>
+            </article>
+
+            <article class="arch-feature-card">
+                <button type="button" class="arch-feature-media" data-lightbox-src="{{ '/img/architect/grid.mp4' | relative_url }}" aria-label="Play the grid demo full size">
+                    <video class="arch-feature-shot" poster="{{ '/img/architect/grid.jpg' | relative_url }}" loop muted playsinline preload="metadata">
+                        <source src="{{ '/img/architect/grid.mp4' | relative_url }}" type="video/mp4">
+                    </video>
+                    <span class="arch-media-badge" aria-hidden="true">&#9654;</span>
+                </button>
+                <div class="arch-feature-body">
+                    <h3>A grid of terminals</h3>
+                    <p>One terminal to start. &#8984;N adds another and the grid reflows; &#8984;W closes one and the rest compact forward. &#8984;Enter blows a cell up to full screen, &#8984;Arrow moves focus, &#8984;1&#8211;&#8984;0 jump straight to a slot. It's all keyboard.</p>
+                </div>
+            </article>
+
+            <article class="arch-feature-card">
+                <button type="button" class="arch-feature-media" data-lightbox-src="{{ '/img/architect/mcp.mp4' | relative_url }}" aria-label="Play the MCP support demo full size">
+                    <video class="arch-feature-shot" poster="{{ '/img/architect/mcp.jpg' | relative_url }}" loop muted playsinline preload="metadata">
+                        <source src="{{ '/img/architect/mcp.mp4' | relative_url }}" type="video/mp4">
+                    </video>
+                    <span class="arch-media-badge" aria-hidden="true">&#9654;</span>
+                </button>
+                <div class="arch-feature-body">
+                    <h3>MCP support</h3>
+                    <p>Architect runs its own MCP server. An MCP-aware app can ask it to open a terminal in any directory, so a tool can hand a task to a new worktree and get its own agent cell, no manual setup on your end.</p>
+                </div>
+            </article>
+
+            <article class="arch-feature-card">
+                <button type="button" class="arch-feature-media" data-lightbox-src="{{ '/img/architect/diff.mp4' | relative_url }}" aria-label="Play the diff overlay demo full size">
+                    <video class="arch-feature-shot" poster="{{ '/img/architect/diff.jpg' | relative_url }}" loop muted playsinline preload="metadata">
+                        <source src="{{ '/img/architect/diff.mp4' | relative_url }}" type="video/mp4">
+                    </video>
+                    <span class="arch-media-badge" aria-hidden="true">&#9654;</span>
+                </button>
+                <div class="arch-feature-body">
+                    <h3>Diff in a keystroke</h3>
+                    <p>&#8984;D shows a repo-wide git diff: staged, unstaged, untracked. Click a line to leave a comment, then send the batch to the agent to act on.</p>
+                </div>
+            </article>
+
+            <article class="arch-feature-card">
+                <button type="button" class="arch-feature-media" data-lightbox-src="{{ '/img/architect/recent.mp4' | relative_url }}" aria-label="Play the recent folders demo full size">
+                    <video class="arch-feature-shot" poster="{{ '/img/architect/recent.jpg' | relative_url }}" loop muted playsinline preload="metadata">
+                        <source src="{{ '/img/architect/recent.mp4' | relative_url }}" type="video/mp4">
+                    </video>
+                    <span class="arch-media-badge" aria-hidden="true">&#9654;</span>
+                </button>
+                <div class="arch-feature-body">
+                    <h3>Recent folders</h3>
+                    <p>&#8984;O brings up the directories you've been in lately. Start typing to filter, arrows to move, &#8984;1&#8211;&#8984;9 to jump. Matches get highlighted as you type.</p>
+                </div>
+            </article>
+
+            <article class="arch-feature-card">
+                <button type="button" class="arch-feature-media" data-lightbox-src="{{ '/img/architect/worktrees.mp4' | relative_url }}" aria-label="Play the worktree picker demo full size">
+                    <video class="arch-feature-shot" poster="{{ '/img/architect/worktrees.jpg' | relative_url }}" loop muted playsinline preload="metadata">
+                        <source src="{{ '/img/architect/worktrees.mp4' | relative_url }}" type="video/mp4">
+                    </video>
+                    <span class="arch-media-badge" aria-hidden="true">&#9654;</span>
+                </button>
+                <div class="arch-feature-body">
+                    <h3>Worktree picker</h3>
+                    <p>&#8984;T drops you into a git worktree on another branch, or makes a new one. Under the hood it's just git commands sent to the shell, so you can see exactly what it did.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="arch-section arch-install">
+        <h2 class="section-title">Get it</h2>
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span class="terminal-button"></span>
+                <span class="terminal-button"></span>
+                <span class="terminal-button"></span>
+            </div>
+            <div class="terminal-content">
+                <p class="arch-caveat">An early-stage thing I use every day. macOS only, and there are still bugs and rough edges.</p>
+                <pre>brew tap forketyfork/architect https://github.com/forketyfork/architect
+brew install architect
+cp -r $(brew --prefix)/Cellar/architect/*/Architect.app /Applications/</pre>
+                <p>Prefer a pre-built binary? Grab the latest from the releases page.</p>
+                <div class="arch-cta-row" style="justify-content:flex-start;margin-bottom:0;">
+                    <a class="arch-btn arch-btn-primary" href="https://github.com/forketyfork/architect/releases">Download release</a>
+                    <a class="arch-btn arch-btn-secondary" href="https://github.com/forketyfork/architect#readme">Read the docs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="arch-section">
+        <h2 class="section-title">Related tools</h2>
+        <p style="text-align:center;">A few other things I'm building for working with several agents at once.</p>
+        <ul class="arch-related-list">
+            <li><a href="https://github.com/forketyfork/stepcat">Stepcat</a> &mdash; orchestrates multi-step implementation plans with Claude Code and Codex.</li>
+            <li><a href="https://github.com/forketyfork/marx">Marx</a> &mdash; runs Claude, Codex, and Gemini in parallel for PR code review.</li>
+            <li><a href="https://github.com/forketyfork/claude-nein">Claude Nein</a> &mdash; macOS menu bar app to track Claude Code spending.</li>
+        </ul>
+        <p style="text-align:center;margin-top:2rem;">Want the longer story? <a href="{{ '/blog/2026/01/21/running-4-ai-coding-agents-at-once-the-terminal-i-built-to-keep-up/' | relative_url }}">Read the blog post</a>.</p>
+    </section>
+
+</div>
