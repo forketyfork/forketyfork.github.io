@@ -15,29 +15,36 @@ green branding.
   - `layout: default`
   - `permalink: /architect/`
   - SEO description in front matter.
-- All page content wrapped in `<div class="architect-landing">` so the green
-  palette is scoped to this page only.
+- All page content wrapped in `<div class="architect-landing">` for
+  landing-specific layout. The green palette is applied page-wide via a
+  body-level theme class (see Project Theme System below), not on this wrapper.
 - Nav: add an **Architect** entry to the header nav and footer nav in
   `jekyll/_layouts/default.html`, with active state on `/architect/`.
   - Add a `nav.architect` key to `jekyll/_data/translations.yml` for `en`/`de`/`ru`
     (label "Architect" in all three; page content itself is English-only).
 
-## Green Palette (scoped)
+## Project Theme System (green palette)
 
 The site recolors entirely through CSS custom properties defined in
 `css/custom.css` (`--primary-color`, `--secondary-color`, `--accent-color`,
-`--background-color`, grid/glow colors). Components reference these variables, so
-redefining them on `.architect-landing` recolors the page with no global impact.
+`--background-color`, `--header-bg-color`, `--footer-bg-color`, grid/glow
+colors). A page opts into a theme with a `theme: <name>` front-matter key; the
+layout renders it as `body.theme-<name>`, and a matching `.theme-<name>` block
+overrides those variables. Because the class sits on `<body>`, the whole page
+recolors — header, footer, nav, and background included — not just the content.
+Pages without a `theme` keep the default palette, so adding another themed
+project is one front-matter line plus one CSS block.
 
-Target family (phosphor terminal green):
+Architect uses `theme: architect`. Target family (phosphor terminal green):
 - `--primary-color`: bright phosphor green (CTAs, links, borders)
-- `--secondary-color`: deep teal-green (headings)
+- `--secondary-color`: terminal green (headings)
 - `--accent-color`: lime/chartreuse (contrast, prompts)
 - `--background-color`: near-black green
-- header/footer glow recolored to green within scope
+- `--header-bg-color` / `--footer-bg-color`: dark green chrome
+- header/footer glow recolored to green
 
-The site header/footer (outside `main.content`) keep the site's pink, so the
-page reads as a distinct green zone while site chrome stays consistent.
+The header and footer adopt the green theme along with the page, so the entire
+page reads as Architect's palette.
 
 ## Page Sections (full product landing)
 

@@ -30,20 +30,44 @@ document.addEventListener('DOMContentLoaded', function () {
     const triggers = document.querySelectorAll('[data-lightbox-src]');
     if (!triggers.length) return;
 
+    // Only ever play local mp4 asset paths through the lightbox
+    const SAFE_SRC = /^\/[\w./-]+\.mp4$/;
+
+    // Build the overlay via the DOM API rather than innerHTML
     const overlay = document.createElement('div');
     overlay.className = 'lightbox-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Video player');
     overlay.setAttribute('aria-hidden', 'true');
-    overlay.innerHTML =
-        '<div class="lightbox-content">' +
-            '<button type="button" class="lightbox-close" aria-label="Close video">×</button>' +
-            '<video class="lightbox-video" controls loop playsinline></video>' +
-        '</div>';
+
+    const content = document.createElement('div');
+    content.className = 'lightbox-content';
+
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'lightbox-close';
+    closeBtn.setAttribute('aria-label', 'Close video');
+    closeBtn.textContent = '×';
+
+    const video = document.createElement('video');
+    video.className = 'lightbox-video';
+    video.controls = true;
+    video.loop = true;
+    video.playsInline = true;
+
+    content.appendChild(closeBtn);
+    content.appendChild(video);
+    overlay.appendChild(content);
     document.body.appendChild(overlay);
 
-    const video = overlay.querySelector('.lightbox-video');
-    const closeBtn = overlay.querySelector('.lightbox-close');
+    let opener = null;
+    let prevOverflow = '';
 
-    function openLightbox(src) {
+    function openLightbox(src, trigger) {
+        if (!SAFE_SRC.test(src)) return;
+        opener = trigger;
+        prevOverflow = document.body.style.overflow;
         video.src = src;
         overlay.classList.add('is-open');
         overlay.setAttribute('aria-hidden', 'false');
@@ -59,15 +83,17 @@ document.addEventListener('DOMContentLoaded', function () {
         video.pause();
         video.removeAttribute('src');
         video.load();
-        document.body.style.overflow = '';
+        document.body.style.overflow = prevOverflow;
+        if (opener && opener.focus) opener.focus();
+        opener = null;
     }
 
     triggers.forEach(function (trigger) {
         trigger.addEventListener('click', function () {
-            openLightbox(trigger.getAttribute('data-lightbox-src'));
+            openLightbox(trigger.getAttribute('data-lightbox-src'), trigger);
         });
 
-        // Play the inline preview on hover, reset when the pointer leaves
+        // Play the inline preview on hover, reset to the poster when the pointer leaves
         const preview = trigger.querySelector('video');
         if (preview) {
             trigger.addEventListener('mouseenter', function () {
@@ -77,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
             trigger.addEventListener('mouseleave', function () {
                 preview.pause();
                 preview.currentTime = 0;
+                preview.load();
             });
         }
     });

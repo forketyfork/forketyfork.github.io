@@ -888,9 +888,11 @@ p > code {
    `.theme-<name> { ... }` block here with that project's palette.
    ========================================================================== */
 
-/* Guard against accidental horizontal scrolling from full-width sections */
+/* Guard against accidental horizontal scrolling from full-width sections.
+   hidden is the fallback; clip wins where supported (no scroll container). */
 html,
 body {
+    overflow-x: hidden;
     overflow-x: clip;
 }
 
