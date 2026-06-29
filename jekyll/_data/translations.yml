@@ -3,6 +3,7 @@ en:
     home: "HOME"
     about: "ABOUT"
     architect: "ARCHITECT"
+    pulse: "PULSE"
   footer:
     made_with: "MADE WITH"
     and: "AND"
@@ -35,6 +36,7 @@ de:
     home: "STARTSEITE"
     about: "ÜBER"
     architect: "ARCHITECT"
+    pulse: "PULSE"
   footer:
     made_with: "GEMACHT MIT"
     and: "UND"
@@ -67,6 +69,7 @@ ru:
     home: "ГЛАВНАЯ"
     about: "О БЛОГЕ"
     architect: "ARCHITECT"
+    pulse: "PULSE"
   footer:
     made_with: "СДЕЛАНО С"
     and: "И"

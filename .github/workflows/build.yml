@@ -30,7 +30,7 @@ jobs:
 
       - name: Webpack build
         run: |
-          nix develop --command bash -c '
+          nix develop --fallback --command bash -c '
             yarn install || { echo "Yarn install failed"; exit 1; }
             yarn build || { echo "Webpack build failed"; exit 1; }
           '
@@ -41,7 +41,7 @@ jobs:
 
       - name: Build Jekyll site with Nix
         run: |
-          nix develop --command bash -c '
+          nix develop --fallback --command bash -c '
             bundle install || { echo "Bundle install failed"; exit 1; }
             bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" --source jekyll || { echo "Jekyll build failed"; exit 1; }
           '

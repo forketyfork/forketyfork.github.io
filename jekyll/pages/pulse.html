@@ -1,0 +1,107 @@
+---
+layout: default
+title: "PULSE - Close Your Eyes"
+permalink: /pulse/
+theme: pulse
+description: "PULSE - Close Your Eyes is an iPhone game about finding a hidden point by touch and vibration."
+image: /img/pulse/screenshot-3.png
+---
+<div class="pulse-landing">
+
+    <section class="pulse-hero">
+        <div class="pulse-hero-media" aria-hidden="true">
+            <img class="pulse-hero-phone pulse-hero-phone-main" src="{{ '/img/pulse/screenshot-2.png' | relative_url }}" alt="">
+            <img class="pulse-hero-phone pulse-hero-phone-back" src="{{ '/img/pulse/screenshot-3.png' | relative_url }}" alt="">
+            <img class="pulse-hero-phone pulse-hero-phone-side" src="{{ '/img/pulse/screenshot-5.png' | relative_url }}" alt="">
+        </div>
+        <div class="pulse-hero-copy">
+            <img class="pulse-icon" src="{{ '/img/pulse/icon.png' | relative_url }}" alt="">
+            <h1>PULSE</h1>
+            <p class="pulse-kicker">Close Your Eyes</p>
+            <p class="pulse-lede">An iPhone game you play by feel. Slide across a dark CRT surface, follow the vibration as it gets faster and stronger, then lift your finger when you think you have found the hidden pulse.</p>
+            <ul class="pulse-badges" aria-label="Project facts">
+                <li>iPhone</li>
+                <li>Haptics</li>
+                <li>Game Center</li>
+                <li>No tracking</li>
+            </ul>
+            <div class="pulse-cta-row">
+                <a class="pulse-btn pulse-btn-primary pulse-btn-placeholder" href="#app-store" aria-disabled="true">App Store soon</a>
+                <a class="pulse-btn pulse-btn-primary" href="{{ '/pulse/support/' | relative_url }}">Support</a>
+                <a class="pulse-btn pulse-btn-secondary" href="{{ '/pulse/privacy/' | relative_url }}">Privacy</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="pulse-section">
+        <h2 class="section-title">How it plays</h2>
+        <p>There is no visible target while you search. The phone gives you the signal: slow and quiet when you are far away, faster and stronger as you get close. Release to commit. A win records your time; a miss shows the gap.</p>
+
+        <div class="pulse-feature-grid">
+            <article class="pulse-feature">
+                <h3>Played by feel</h3>
+                <p>The main loop is touch and vibration, not visual aiming. The screen stays dark during the search.</p>
+            </article>
+            <article class="pulse-feature">
+                <h3>Fast rounds</h3>
+                <p>Each round is one hidden pulse. Clean streaks narrow the hit zone, so getting comfortable is not the same as coasting.</p>
+            </article>
+            <article class="pulse-feature">
+                <h3>Local progress</h3>
+                <p>Best time, streaks, wins, misses, jackpots, and palette progress stay on the device.</p>
+            </article>
+            <article class="pulse-feature">
+                <h3>Friend races</h3>
+                <p>Game Center races compare find times from each device's own go moment. Fastest clean find wins.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="pulse-section pulse-screens">
+        <h2 class="section-title">Screenshots</h2>
+        <p>Five moments from the app: first touch, search, win, miss, and the color palette.</p>
+
+        <div class="pulse-screen-grid">
+            <figure class="pulse-screen">
+                <img src="{{ '/img/pulse/screenshot-1.png' | relative_url }}" alt="PULSE onboarding screen with four short touch instructions" loading="lazy">
+                <figcaption>Learn the loop</figcaption>
+            </figure>
+            <figure class="pulse-screen">
+                <img src="{{ '/img/pulse/screenshot-2.png' | relative_url }}" alt="PULSE search screen with a soft green glow on the dark CRT background" loading="lazy">
+                <figcaption>Follow the signal</figcaption>
+            </figure>
+            <figure class="pulse-screen">
+                <img src="{{ '/img/pulse/screenshot-3.png' | relative_url }}" alt="PULSE win screen showing a 6.69 second find time and a burst of yellow particles" loading="lazy">
+                <figcaption>Find the pulse</figcaption>
+            </figure>
+            <figure class="pulse-screen">
+                <img src="{{ '/img/pulse/screenshot-4.png' | relative_url }}" alt="PULSE miss reveal showing the target, guess point, and distance line" loading="lazy">
+                <figcaption>See the miss</figcaption>
+            </figure>
+            <figure class="pulse-screen">
+                <img src="{{ '/img/pulse/screenshot-5.png' | relative_url }}" alt="PULSE palette screen showing 132 collected color segments out of 256" loading="lazy">
+                <figcaption>Fill the palette</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="pulse-section pulse-note">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span class="terminal-button"></span>
+                <span class="terminal-button"></span>
+                <span class="terminal-button"></span>
+            </div>
+            <div class="terminal-content">
+                <div class="command-line">
+                    <span class="prompt">pulse@iphone:~$</span> cat notes.txt
+                </div>
+                <div class="response">
+                    <p>PULSE needs precise vibration feedback to play. Use an iPhone with vibration feedback; iPads and older iPhones are not supported.</p>
+                    <p>The ambient sound is synthesized on the device, and the audio session respects the silent switch.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

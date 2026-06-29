@@ -38,6 +38,7 @@
                     <li><a href="{{ '/about/' | relative_url }}" {% if page.url=='/about/' %}class="active" {% endif
                             %}>{{ site.data.translations[site.active_lang].nav.about }}</a></li>
                     <li><a href="{{ '/architect/' | relative_url }}" {% if page.url=='/architect/' %}class="active" {% endif %}>{{ site.data.translations[site.active_lang].nav.architect }}</a></li>
+                    <li><a href="{{ '/pulse/' | relative_url }}" {% if page.url=='/pulse/' %}class="active" {% endif %}>{{ site.data.translations[site.active_lang].nav.pulse }}</a></li>
                     <li class="lang-switcher">
                         {% for lang in site.languages %}
                             {% if lang == site.active_lang %}
@@ -79,6 +80,7 @@
                     <li><a href="{{ '/about/' | relative_url }}" {% if page.url=='/about/' %}class="active" {% endif
                             %}>{{ site.data.translations[site.active_lang].nav.about }}</a></li>
                     <li><a href="{{ '/architect/' | relative_url }}" {% if page.url=='/architect/' %}class="active" {% endif %}>{{ site.data.translations[site.active_lang].nav.architect }}</a></li>
+                    <li><a href="{{ '/pulse/' | relative_url }}" {% if page.url=='/pulse/' %}class="active" {% endif %}>{{ site.data.translations[site.active_lang].nav.pulse }}</a></li>
                 </ul>
             </div>
         </footer>
