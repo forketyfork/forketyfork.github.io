@@ -9,3 +9,5 @@ jekyll/_data/manifest.json
 .direnv
 .DS_Store
 .playwright-mcp/
+.tmp/
+.architect/
