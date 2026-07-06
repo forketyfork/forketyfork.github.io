@@ -4,22 +4,28 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 7
     groups:
-      all-actions:
+      all-dependencies:
         patterns:
           - "*"
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 7
     groups:
-      all-actions:
+      all-dependencies:
         patterns:
           - "*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 7
     groups:
       all-actions:
         patterns:
