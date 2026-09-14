@@ -9,9 +9,7 @@
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import nixpkgs {
-          inherit system;
-        };
+        pkgs = import nixpkgs { inherit system; };
 
         # Use Ruby 3.4.3 to match Gemfile specification and ensure Jekyll 4.4.1 compatibility
         ruby = pkgs.ruby_3_4;
@@ -45,13 +43,13 @@
           BUNDLE_FORCE_RUBY_PLATFORM = "1";
 
           buildInputs = [
-            ruby 
-            pkgs.bundix 
-            gemset 
+            ruby
+            pkgs.bundix
+            gemset
             pkgs.nixfmt-classic
             pkgs.nil
-            pkgs.yarn
-            pkgs.nodejs
+            (pkgs.yarn.override { nodejs = pkgs.nodejs_22; })
+            pkgs.nodejs_22
             pkgs.just
           ];
 
@@ -68,8 +66,8 @@
 
         # Package outputs - provides access to the Jekyll gem environment
         packages = {
-          default = gemset;      # Default package (nix build)
-          jekyll-env = gemset;   # Named Jekyll environment package
-        };      }
-    );
+          default = gemset; # Default package (nix build)
+          jekyll-env = gemset; # Named Jekyll environment package
+        };
+      });
 }
