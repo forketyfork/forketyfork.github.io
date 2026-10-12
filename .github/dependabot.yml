@@ -10,6 +10,10 @@ updates:
       all-dependencies:
         patterns:
           - "*"
+      security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:
@@ -20,6 +24,10 @@ updates:
       all-dependencies:
         patterns:
           - "*"
+      security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -28,5 +36,9 @@ updates:
       default-days: 7
     groups:
       all-actions:
+        patterns:
+          - "*"
+      security-updates:
+        applies-to: security-updates
         patterns:
           - "*"
